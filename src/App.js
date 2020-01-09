@@ -16,7 +16,7 @@ function App() {
           />
           <Route
             exact
-            path="/entries"
+            path="/public-entries"
             component={(AllPublicEntries)}
           />
       <Route
