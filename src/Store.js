@@ -6,6 +6,7 @@ const initialState = {
   entries: {
     currentPage: {}
   },
+  displayUploadModal: false
 };
   function reducer(state, action) {
     switch (action.type) {
@@ -20,6 +21,8 @@ const initialState = {
             entries: action.entries,
             currentPage: action.currentPage
           };
+          case 'TOGGLE_UPLOAD_MODAL':
+            return {...state, displayUploadModal:!state.displayUploadModal }
       default:
         return state;
     }
