@@ -5,7 +5,8 @@ import AllPublicEntries from './components/Entries'
 import LoadingPage from './components/commons/LoadingPage'
 import { Route, Switch } from "react-router-dom";
 import IntroPage from './components/Intro'
-import EditorImage from './components/Editor/EditorView'
+import Gallery from './components/ImageGallery'
+import Editor from './components/Editor'
 function App() {
   return (
     <>
@@ -13,7 +14,7 @@ function App() {
       <Route
             exact
             path="/"
-            component={( EditorImage)}
+            component={( Editor)}
           />
           <Route
             exact
