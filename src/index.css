@@ -11,9 +11,10 @@ body {
   display: flex;
   width: 100%;
   background: #e53935;
-  position: fixed;
+  position: relative;
   justify-content: space-between;
   z-index: 1;
+  top: 0;
 }
 a{
   text-decoration: none;
@@ -386,18 +387,18 @@ display: flex;
   cursor: pointer;
   padding-left: 10px;
   padding-right: 10px;
+  font-weight: bolder;
 }
 .tab-nav p:after {
   content: "";
   display: block;
   width: 0;
-  border-bottom: 2px solid  white;
+  border-bottom: 4px solid  white;
   transition: 0.2s;
   padding-top: 15px;
 }
 .tab-nav-active {
-  border-bottom: 2px solid white;
-  transition: 0.2s;
+  border-bottom: 4px solid white;
   padding-top: 0px;
   padding-bottom: 42px
 }
@@ -856,16 +857,43 @@ font-size: 1.2rem;
   cursor: pointer;
   color: white;
 }
-.upload-info-container{
+.thumbs-container  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  justify-content: center;
+}
+.thumb {
+  display: inline-flex;
+  border-radius: 2px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  width: 100px;
+  height: 100px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+.thumb-inner {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+}
+.thumb-preview {
+  display: block;
+  width:inherit;
+  height: 100%;
+}
+.upload-info-container {
   text-align: center;
   padding-top: 5px;
-  }
-
-  .image-gallery{
+  } 
+  .image-gallery {
     display: grid;
     grid-template-columns: auto auto  auto auto;
     grid-gap: 15px;
-    margin:40px
+    margin:0 100px
   }
   .image-gallery main img {
     height: 220px;
