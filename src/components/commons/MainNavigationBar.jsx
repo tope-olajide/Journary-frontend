@@ -25,6 +25,9 @@ const MainNavigationBar = () => {
               <Link to="/entries">
                 <span className="main-nav-link"  onClick={toggleNav}>Diaries</span>
               </Link>
+              <Link to="/new-entry">
+                <span className="main-nav-link"  onClick={toggleNav}>New Entry</span>
+              </Link>
               <Link to="/entries">
                 <span className="main-nav-link"  onClick={toggleNav}>Profile</span>
               </Link>
