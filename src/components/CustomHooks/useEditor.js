@@ -1,18 +1,20 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
-const useEditor =()=> {
-const [editorState, setEditorState] = useState(EditorState.createEmpty());
-const onEditorStateChange = editorState => {
+const useEditor = () => {
+  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [htmlContents, setHtmlContents] = useState("");
+  const onEditorStateChange = editorState => {
     setEditorState(editorState);
-    const html= draftToHtml(convertToRaw(editorState.getCurrentContent()))
-    console.log(html)
+    const htmlContent = draftToHtml(
+      convertToRaw(editorState.getCurrentContent())
+    );
+    setHtmlContents(htmlContent);
   };
-  const html= draftToHtml(convertToRaw(editorState.getCurrentContent()))
-  
-return {
-    onEditorStateChange, editorState, html
-}
-
-}
-export default useEditor
+  return {
+    onEditorStateChange,
+    editorState,
+    htmlContents
+  };
+};
+export default useEditor;
