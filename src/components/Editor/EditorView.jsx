@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Editor } from "react-draft-wysiwyg";
-import useImageUpload from "../CustomHooks/useSelectImageUpload";
+import useImageUpload from "../CustomHooks/useImageUpload";
 import EntriesView from "../Entries/EntriesView";
 import MainNavigationBar from "../commons/MainNavigationBar"
 import dompurify from 'dompurify';
 import useEditor from '../CustomHooks/useEditor'
 import CustomImageToolbar from './CustomImageToolbar'
 
-const EditorView = () => {
-  const {onEditorStateChange, editorState, html} = useEditor()
+const EditorView = ({onEditorStateChange, editorState}) => {
+  /* const {onEditorStateChange, editorState} = useEditor()  */
   const sanitizer = dompurify.sanitize;
 
   return (
