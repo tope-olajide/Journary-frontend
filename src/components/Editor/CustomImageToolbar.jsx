@@ -2,16 +2,21 @@ import React, { useContext } from "react";
 import { EditorState, AtomicBlockUtils } from "draft-js";
 import imageIcon from "../../images/images.png";
 import  ImageGalleryUploadModal  from "./ImageGalleryUploadModal";
-import useToggleImageUpload from "../CustomHooks/useToggleImageUpload";
+import useToggleImageGallery from "../CustomHooks/useToggleImageGallery";
 import { Store } from "../../Store";
 
 const CustomImageToolbar = props => {
-  const { dispatchToggleUpload } = useToggleImageUpload();
-  const { state } = useContext(Store);
-  const toggleUploadView = () => {
-    return dispatchToggleUpload();
-  };
+  const { state,dispatch } = useContext(Store);
+  const { toggleGalleryModal, isGalleryModal } = useToggleImageGallery()
   const addImage = imageUrl => {
+/* this will use the first picture that the user select as the Featured Image,
+the user can later change it when he/she click on the "Set as feature" button */
+dispatch({
+  type: "SET_TEMPORARY_FEATURE_IMAGE",
+  payLoad: imageUrl
+});
+console.log(state.temporaryFeatureImage)
+// Insert the selected image into the editor
     const { editorState, onChange } = props;
     const urlValue = imageUrl;
     const contentStateWithEntity = editorState
@@ -27,20 +32,22 @@ const CustomImageToolbar = props => {
       " "
     );
     onChange(newEditorState);
+  // Close Image Gallery when done
+  toggleGalleryModal()
   };
-  if (state.displayUploadModal) {
+  if (isGalleryModal) {
     return (
       <>
         <ImageGalleryUploadModal
           addImage={addImage}
-          dispatchToggleUpload={dispatchToggleUpload}
+          toggleGalleryModal={toggleGalleryModal}
         />
       </>
     );
   }
   return (
     <>
-      <div className="image-icon-container" onClick={toggleUploadView}>
+      <div className="image-icon-container" onClick={toggleGalleryModal}>
         <img className="image-icon" src={imageIcon} alt={imageIcon} />
       </div>
     </>
