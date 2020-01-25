@@ -14,8 +14,8 @@ const SignUpUser = () => {
   const [redirectToHomepage, setRedirectToHomepage] = useState(false);
   const { inputs, handleChange } = useForm();
   const { dispatch } = React.useContext(Store);
-  const handleFormSubmit = async e => {
-    e.preventDefault();
+  const handleFormSubmit = async event => {
+    event.preventDefault();
     const validateUserDetails = validateUser(inputs);
     if (validateUserDetails[0] === false) {
       return toast.error(`${validateUserDetails[1]}`, {
