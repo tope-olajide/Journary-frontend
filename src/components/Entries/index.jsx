@@ -4,6 +4,7 @@ import axios from 'axios'
 import EntriesView from './EntriesView'
 import LoadMoreButton from '../commons/LoadMoreButton'
 import {Store} from '../../Store'
+
 const token = localStorage.getItem('token');
 const setHeaderToken = {
     headers: {

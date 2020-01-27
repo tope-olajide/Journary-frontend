@@ -34,7 +34,7 @@ const SignIn = () => {
               type: "SET_CURRENT_USER",
               userData
             });
-        }catch (error) {
+        } catch (error) {
         setIsLoading(false);
         const errorMessage = handleNetworkError(error);
         return toast.error(errorMessage, {
