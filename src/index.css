@@ -346,30 +346,33 @@ display: flex;
   background-color: #e57373;
 }
 .profile-container {
-  width: 85%;
-  margin: auto auto;
+  width: 90%;
+  margin: auto auto; 
   display: flex;
 }
 .profile-image-container {
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
+
 }
-.profile-image img {
-  margin-top: -120px;
-  vertical-align: top;
-  width: 80%;
+.profile-image {
+  margin-top: -90px;
+  width: 170px;
+  height:170px;
   border-radius: 50%;
   border: 7px solid #b71c1c;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: block
 }
 
 .info-section {
-  width: 30%;
-  color: white
+  width: 35%;
+  color: white;
+  margin-right:20px
 }
 .tab-section {
   display: flex;
-  width: 70%;
+  width: 75%;
   flex-direction: column;
 }
 .tab-nav {
@@ -399,7 +402,7 @@ display: flex;
 }
 .tab-nav-active {
   border-bottom: 4px solid white;
-  padding-top: 0px;
+  padding-top: 5px;
   padding-bottom: 42px
 }
 .tab-nav p:hover:after {
@@ -419,12 +422,13 @@ td {
   border-collapse: collapse;
 }
 table {
-  width: 90%;
+  width: 100%;
+  margin: auto
 }
 .user-info {
   line-height: 10px;
-  margin: auto;
-  width: 50%;
+  width: 100%;
+  text-align: center;
 }
 .entry-details-container {
   width: 70%;
@@ -978,4 +982,19 @@ font-size: 1.2rem;
     .feature-image-section {
       height:200px;
     }
+  }
+  .edit-profile-form-image{
+    margin-top:0;
+    object-fit: cover;
+  }
+  .camera-icon {
+    position:absolute;
+    margin-top:-42px;
+    margin-left: 235px;
+    cursor: pointer;
+    color: rgb(29, 26, 26);
+    padding: 5px;
+  }
+  .about-textbox{
+    width:103%
   }
