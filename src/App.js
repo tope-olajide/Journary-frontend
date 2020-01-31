@@ -8,10 +8,24 @@ import IntroPage from './components/Intro'
 import Gallery from './components/ImageGallery'
 import Editor from './components/Editor'
 import CreateNewEntry from './components/CreateNewEntry'
+import MyProfile from './components/Profile/index'
+import EditProfileForm from './components/EditProfileForm'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
+library.add (faCamera)
 function App() {
   return (
     <>
       <Switch>
+      <Route 
+            path="/my-profile"
+            component={(MyProfile)}
+          />
+          <Route
+            
+            path="/edit-profile"
+            component={(EditProfileForm)}
+          />
       <Route
             exact
             path="/"
@@ -27,6 +41,7 @@ function App() {
             path="/public-entries"
             component={(AllPublicEntries)}
           />
+           
       <Route
             exact
             path="/sign-in"

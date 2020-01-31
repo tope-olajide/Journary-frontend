@@ -8,8 +8,9 @@ import { Store } from "../../Store";
 import { Redirect } from "react-router-dom";
 import SignUpView from "./SignUpView";
 import { ToastContainer, toast } from "react-toastify";
-const url = "http://127.0.0.1:9000/api/user/";
+
 const SignUpUser = () => {
+  const url = "http://127.0.0.1:9000/api/user/";
   const [isLoading, setIsLoading] = useState(false);
   const [redirectToHomepage, setRedirectToHomepage] = useState(false);
   const { inputs, handleChange } = useForm();

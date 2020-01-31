@@ -24,7 +24,6 @@ const EditorView = ({onEditorStateChange, editorState}) => {
       textAlign: { inDropdown: true },
       link: { inDropdown: true }, history: { inDropdown: true },*/
           image: { className: 'hide-default-image-icon' },
-          
         }}
         toolbarCustomButtons={[<CustomImageToolbar />]}
         editorState={editorState}
