@@ -7,7 +7,7 @@ import dompurify from 'dompurify';
 import useEditor from '../CustomHooks/useEditor'
 import CustomImageToolbar from './CustomImageToolbar'
 
-const EditorView = ({onEditorStateChange, editorState}) => {
+const EditorView = ({onEditorStateChange, editorState, defaultEditorState}) => {
   /* const {onEditorStateChange, editorState} = useEditor()  */
   const sanitizer = dompurify.sanitize;
 
@@ -28,6 +28,7 @@ const EditorView = ({onEditorStateChange, editorState}) => {
         toolbarCustomButtons={[<CustomImageToolbar />]}
         editorState={editorState}
         onEditorStateChange={onEditorStateChange}
+        defaultEditorState={defaultEditorState}
       />
     </section>
     
