@@ -29,6 +29,7 @@ const PrivateEntries = () => {
   return (
     <>
       <main class="entries-container">
+        {console.log(data)}
         {!(data.entries.length)?<div>You currently do not have any private Entries</div>:
         data.entries.map(entry => {
           return (
