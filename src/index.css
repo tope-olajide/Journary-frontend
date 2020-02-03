@@ -54,6 +54,9 @@ a{
   transition: 0.5s;
   opacity: .95;
 }
+.mt-1{
+  margin-top: 20px;
+}
   .overlay-content {
 display: flex;
   text-align: center;
@@ -573,7 +576,7 @@ select {
   height: 2.0em;
 }input::placeholder,
 textarea::placeholder {
-  color: rgba(12, 11, 11, 0.6)
+  color: rgba(12, 11, 11, 0.6);
 }
 input[type="text"]:focus,
 		input[type="password"]:focus,
