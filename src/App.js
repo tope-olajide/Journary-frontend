@@ -10,6 +10,7 @@ import Editor from './components/Editor'
 import CreateNewEntry from './components/CreateNewEntry'
 import MyProfile from './components/Profile/index'
 import EditProfileForm from './components/EditProfileForm'
+import ModifyEntry from './components/ModifyEntry'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 library.add (faCamera)
@@ -22,9 +23,12 @@ function App() {
             component={(MyProfile)}
           />
           <Route
-            
             path="/edit-profile"
             component={(EditProfileForm)}
+          />
+          <Route
+            path="/modify-entry/:entryId"
+            component={(ModifyEntry)}
           />
       <Route
             exact
