@@ -42,7 +42,7 @@ const setHeaderToken = {
               <th scope="col"><h4>{data.publicEntriesCount}</h4><p>Private</p></th>
               <th scope="col"><h4>{data.totalEntriesCount}</h4><p>Total</p></th>
             </tr>
-         </table>
+        </table>
          <button>Edit Profile</button>
     </section>
     
