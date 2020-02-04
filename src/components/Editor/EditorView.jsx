@@ -32,7 +32,8 @@ const EditorView = ({onEditorStateChange, editorState, defaultEditorState}) => {
       />
     </section>
     
-{/*     <div
+{/* 
+<div
           style={{ minHeight: "200px" }}
           dangerouslySetInnerHTML={{ __html: sanitizer(html) }}
         /> */}

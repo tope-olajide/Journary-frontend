@@ -11,9 +11,12 @@ import CreateNewEntry from './components/CreateNewEntry'
 import MyProfile from './components/Profile/index'
 import EditProfileForm from './components/EditProfileForm'
 import ModifyEntry from './components/ModifyEntry'
+import EntryDetails from './components/EntryDetails'
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCamera } from "@fortawesome/free-solid-svg-icons";
-library.add (faCamera)
+import { faCamera, faEye, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+library.add (faCamera,faEye,
+  faTrash,
+  faEdit,) 
 function App() {
   return (
     <>
@@ -29,6 +32,10 @@ function App() {
           <Route
             path="/modify-entry/:entryId"
             component={(ModifyEntry)}
+          />
+          <Route
+            path="/entry-details/:entryId"
+            component={(EntryDetails)}
           />
       <Route
             exact
