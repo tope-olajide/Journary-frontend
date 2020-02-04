@@ -440,8 +440,12 @@ table {
   margin-bottom: 150px;
   color:white
 }
+.entry-details-container img {
+  max-width: 100%;
+}
 .entry-details-container h1 {
   font-size: 3rem;
+  text-transform: uppercase;
 }
 .entry-details-container p {
   font-size: 1.7rem;
@@ -847,7 +851,7 @@ font-size: 1.2rem;
   width:100%;
   border-bottom:1px solid rgb(255, 255, 255, 0.5);
 }
-.modal-body {
+.modal-body, .delete-modal-body {
   height: 100%;
   overflow-y: auto;
   overflow-x:hidden;
@@ -998,6 +1002,59 @@ font-size: 1.2rem;
     color: rgb(29, 26, 26);
     padding: 5px;
   }
-  .about-textbox{
+  .about-textbox {
     width:103%
   }
+.entry-details-option {
+  display: flex;
+  justify-content: space-between;align-items: center;
+}
+.icon{
+  margin:15px;
+  border: 1px solid white;
+  padding:8px;
+  cursor: pointer;
+}
+.view-count{
+border:1px solid white;
+margin:15px ;
+padding:7px
+}
+.view-count p {
+  display: inline;
+  margin:10px 0;
+}
+.right-details {
+  display: flex;
+  padding: 0;
+}
+.delete-modal{
+  width:50%;
+  position: fixed;
+  z-index: 10;
+  top:20%;
+  display: block;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%
+}
+.delete-modal-header{
+  width:100%;
+  border:1px solid rgb(255, 255, 255, 0.5);
+  box-shadow: 0 0px 10px 0 rgba(0,0,0,0.5),0 1px 1px 0 rgba(0,0,0,0.5);
+  padding:0px 10px;
+  background: #b71c1c;
+}
+.delete-modal-body {
+  border:1px solid rgb(255, 255, 255, 0.5);box-shadow: 0 4px 10px 0 rgba(0,0,0,0.5),0 1px 1px 0 rgba(0,0,0,0.5);
+  width:100%;background: #b71c1c;
+  padding:10px 10px
+}
+.delete-button {
+  padding: 0 50px 0 50px;
+}
+.delete-button-container{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px; 
+}
