@@ -6,25 +6,20 @@ import useSWR from 'swr'
 import EditorView from "../Editor/EditorView";
 import MainNavigationBar from "../commons/MainNavigationBar";
 import ImageGalleryUploadModal from "../Editor/ImageGalleryUploadModal";
-import { Store } from "../../Store";
 import useEditor from "../CustomHooks/useEditor";
 import useForm from "../CustomHooks/useForm";
 import useToggleImageGallery from "../CustomHooks/useToggleImageGallery";
 import handleNetworkError from "../../utils/networkErrorHandler";
 import { ToastContainer, toast } from "react-toastify";
 const ModifyEntry = ({match}) => {
-const {entryId} = match.params
-const { state } = useContext(Store);
+const {entryId} = match.params;
 const [featureImage, setFeatureImage] = useState("");
 const [isFeatureImage, setIsFeatureImage] = useState(false);
 const { inputs, handleChange } = useForm();
 const {  htmlContents, onEditorStateChange, editorState,setEditorState } = useEditor();
-/* const [htmlContents, setHtmlContents] = useState(""); */
 const { toggleGalleryModal, isGalleryModal } = useToggleImageGallery();
 const [isLoading, setIsLoading] = useState(false);
 const [isEntryPrivate, setIsEntryPrivate] = useState(true);
-const { dispatch } = React.useContext(Store);
-/* const [editorState, setEditorState] = useState(""); */
 const token = localStorage.getItem('token');
 const setHeaderToken = {
     headers: {
