@@ -6,6 +6,8 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import PrivateEntries from './PrivateEntries';
 import PublicEntries from './PublicEntries';
 import useSWR from 'swr'
+import Reminder from '../Reminder'
+import Footer from '../commons/Footer'
 const MyProfile = () => {
 const token = localStorage.getItem("token");
 const setHeaderToken = {
@@ -43,7 +45,8 @@ const setHeaderToken = {
               <th scope="col"><h4>{data.totalEntriesCount}</h4><p>Total</p></th>
             </tr>
         </table>
-         <button>Edit Profile</button>
+        <div className="center mt-1">
+         <button>Edit Profile</button></div>
     </section>
     
     <section class="tab-section"><Tabs>
@@ -54,20 +57,17 @@ const setHeaderToken = {
                 <Tab selectedClassName="tab-nav-active">
                   <p>Public Entries</p>
                 </Tab>
-                <Tab selectedClassName="tab-nav-active">
+              <Tab selectedClassName="tab-nav-active">
                   <p>Settings</p>
-                </Tab>
+              </Tab>
               </TabList>
               <TabPanel><PrivateEntries /></TabPanel>
               <TabPanel><PublicEntries /></TabPanel>
-
-
-
-
-       </Tabs>
+              <TabPanel><Reminder /></TabPanel>
+              </Tabs>
     </section>
 </main>
-
+<Footer />
     </>)
 }
 export default MyProfile
