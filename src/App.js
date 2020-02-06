@@ -13,10 +13,11 @@ import EditProfileForm from './components/EditProfileForm'
 import ModifyEntry from './components/ModifyEntry'
 import EntryDetails from './components/EntryDetails'
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faCamera, faEye, faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faEye, faTrash, faEdit, faCheck, } from "@fortawesome/free-solid-svg-icons";
+import Reminder from './components/Reminder'
 library.add (faCamera,faEye,
   faTrash,
-  faEdit,) 
+  faEdit, faCheck) 
 function App() {
   return (
     <>
@@ -41,6 +42,11 @@ function App() {
             exact
             path="/"
             component={( Gallery)}
+          />
+           <Route
+            exact
+            path="/reminder"
+            component={( Reminder)}
           />
           <Route
             exact
