@@ -4,7 +4,8 @@ import axios from 'axios'
 import EntriesView from './EntriesView'
 import LoadMoreButton from '../commons/LoadMoreButton'
 import {Store} from '../../Store'
-
+import MainNavigationBar from '../commons/MainNavigationBar'
+import Footer from "../commons/Footer"
 const token = localStorage.getItem('token');
 const setHeaderToken = {
     headers: {
@@ -32,6 +33,7 @@ const AllPublicEntries = () => {
     if (!data) return <div>loading...</div>
     return (
         <>
+        <MainNavigationBar />
         <main class="entries-container">
 {state.entries.map(entry=>{
 return <EntriesView title={entry.title} entry_image_url={entry.entry_image_url}/>
@@ -40,6 +42,7 @@ return <EntriesView title={entry.title} entry_image_url={entry.entry_image_url}/
 }
 </main>
 <LoadMoreButton />
+<Footer />
         </>
     )
 }
