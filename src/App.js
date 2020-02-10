@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import SignIn from './components/SignIn/index'
 import SignUp from './components/SignUp/index'
 import AllPublicEntries from './components/Entries'
@@ -14,11 +14,12 @@ import ModifyEntry from './components/ModifyEntry'
 import EntryDetails from './components/EntryDetails'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCamera, faEye, faTrash, faEdit, faCheck, } from "@fortawesome/free-solid-svg-icons";
-import Reminder from './components/Reminder'
+import Reminder from './components/Reminder';
 library.add (faCamera,faEye,
   faTrash,
   faEdit, faCheck) 
 function App() {
+
   return (
     <>
       <Switch>
@@ -40,7 +41,7 @@ function App() {
           />
       <Route
             exact
-            path="/"
+            path="/gallery"
             component={( Gallery)}
           />
            <Route
@@ -55,7 +56,7 @@ function App() {
           />
           <Route
             exact
-            path="/public-entries"
+            path="/"
             component={(AllPublicEntries)}
           />
            
