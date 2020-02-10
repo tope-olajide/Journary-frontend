@@ -1,10 +1,12 @@
-import React, {useState} from "react";
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import useTheme from '../CustomHooks/useTheme'
 const MainNavigationBar = () => {
-    const [isNavOpen, setIsNavOpen] = useState (false)
-    const toggleNav = () => {
-        setIsNavOpen(!isNavOpen)
-    }
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const { changeTheme } = useTheme()
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
   return (
     <>
       <nav>
@@ -15,25 +17,42 @@ const MainNavigationBar = () => {
             className="overlay"
             style={isNavOpen ? { width: "100%" } : { width: 0 }}
           >
-            <span className="closebtn" onClick= {toggleNav} >
+            <span className="closebtn" onClick={toggleNav}>
               &times;
             </span>
             <div className="overlay-content">
               <Link to="/">
-                <span className="main-nav-link" onClick={toggleNav}>Home</span>
+                <span className="main-nav-link" onClick={toggleNav}>
+                  Home
+                </span>
               </Link>
               <Link to="/entries">
-                <span className="main-nav-link"  onClick={toggleNav}>Diaries</span>
+                <span className="main-nav-link" onClick={toggleNav}>
+                  Diaries
+                </span>
               </Link>
               <Link to="/new-entry">
-                <span className="main-nav-link"  onClick={toggleNav}>New Entry</span>
+                <span className="main-nav-link" onClick={toggleNav}>
+                  New Entry
+                </span>
               </Link>
               <Link to="/entries">
-                <span className="main-nav-link"  onClick={toggleNav}>Profile</span>
+                <span className="main-nav-link" onClick={toggleNav}>
+                  Profile
+                </span>
               </Link>
               <Link to="/entries">
-                <span className="main-nav-link"  onClick={toggleNav}>Logout</span>
+                <span className="main-nav-link" onClick={toggleNav}>
+                  Logout
+                </span>
               </Link>
+              <section className="theme-container">
+                <div onClick={()=>{changeTheme('red')}} className="theme-color red"></div>
+                <div onClick={()=>{changeTheme('indigo')}} className="theme-color indigo"></div>
+                <div onClick={()=>{changeTheme('pink')}}className="theme-color pink"></div>
+                <div onClick={()=>{changeTheme('green')}} className="theme-color green"></div>
+                <div onClick={()=>{changeTheme('teal')}}className="theme-color teal"></div>
+              </section>
             </div>
           </div>
           <div className="menu-icon" onClick={toggleNav}>
