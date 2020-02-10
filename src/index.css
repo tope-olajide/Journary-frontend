@@ -870,7 +870,8 @@ text-align:center
   padding:8px;
   border: 1px solid rgb(0, 0, 0, 0.1);
   border-radius:3px;
-  background: white
+  background: white;
+  margin-right:7px
 }
 .hide-default-image-icon{
   display:none
@@ -889,10 +890,22 @@ text-align:center
 
 .editor{
   border:0px solid rgb(255, 255, 255);
-  height: 300px;padding: 10px;
+  height: 90%;padding: 10px;
   color:white;
   border: 3px solid rgb(255, 255, 255);
   border-radius: 3px;
+}
+.editor-wrapper-max {
+  background:var(--darken-4);
+  width: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 12;
+  height:100%
+}
+.editor-wrapper-min {
+  height:60vh;
 }
 .toolbar {
    background: rgb(5, 0, 0,);
@@ -902,7 +915,6 @@ text-align:center
   border-radius: 3px;
   margin: 0 0 -3.8px 0;
 }
-
 .editor-image-modal {
   top: 50%;
   left: 50%;

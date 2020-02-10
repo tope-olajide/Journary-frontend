@@ -4,9 +4,10 @@ import imageIcon from "../../images/images.png";
 import  ImageGalleryUploadModal  from "./ImageGalleryUploadModal";
 import useToggleImageGallery from "../CustomHooks/useToggleImageGallery";
 import { Store } from "../../Store";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const CustomImageToolbar = props => {
-  const { state,dispatch } = useContext(Store);
+const CustomToolbars = props => {
+  const { state, dispatch } = useContext(Store);
   const { toggleGalleryModal, isGalleryModal } = useToggleImageGallery()
   const addImage = imageUrl => {
 /* this will use the first picture that the user select as the Featured Image,
@@ -35,6 +36,12 @@ console.log(state.temporaryFeatureImage)
   // Close Image Gallery when done
   toggleGalleryModal()
   };
+  const toggleEditorSize =() =>{
+    dispatch({
+      type: "TOGGLE_EDITOR_SIZE",
+      payload: !state.maximizeEditor
+    });
+  }
   if (isGalleryModal) {
     return (
       <>
@@ -50,7 +57,8 @@ console.log(state.temporaryFeatureImage)
       <div className="image-icon-container" onClick={toggleGalleryModal}>
         <img className="image-icon" src={imageIcon} alt={imageIcon} />
       </div>
+      <FontAwesomeIcon  className="image-icon" icon={state.maximizeEditor?"window-minimize":"window-maximize"} onClick={toggleEditorSize}/>
     </>
   );
 };
-export default CustomImageToolbar;
+export default CustomToolbars;

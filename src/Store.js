@@ -7,7 +7,8 @@ export function StoreProvider(props) {
     currentPage: 1,
     displayUploadModal: false,
     temporaryFeatureImage: "",
-    imageGallery:[]
+    imageGallery:[],
+    maximizeEditor: false
   };
   function reducer(state, action) {
     switch (action.type) {
@@ -35,6 +36,8 @@ export function StoreProvider(props) {
           ...state,
           imageGallery: state.imageGallery.concat(action.gallery)
         };
+        case "TOGGLE_EDITOR_SIZE":
+          return {...state, maximizeEditor:action.payload}
       default:
         return state;
     }
