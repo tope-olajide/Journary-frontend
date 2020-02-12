@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import useTheme from '../CustomHooks/useTheme'
+import useTheme from "../CustomHooks/useTheme";
+import { Store } from "../../Store";
+import axios from "axios";
 const MainNavigationBar = () => {
+  const { dispatch } = React.useContext(Store);
+  const signOut = () => {
+    localStorage.removeItem("token");
+    delete axios.defaults.headers.common["authorization"];
+    dispatch({
+      type: "SET_CURRENT_USER",
+      userData: {}
+    });
+    window.location = "/intro";
+  };
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const { changeTheme } = useTheme()
+  const { changeTheme } = useTheme();
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -11,7 +23,10 @@ const MainNavigationBar = () => {
     <>
       <nav>
         <section className="main-nav">
-          <h2 className="logo">Journary</h2>
+          <Link to="/">
+            {" "}
+            <h2 className="logo">Journary</h2>
+          </Link>
           <div
             id="myNav"
             className="overlay"
@@ -21,37 +36,57 @@ const MainNavigationBar = () => {
               &times;
             </span>
             <div className="overlay-content">
-              <Link to="/">
-                <span className="main-nav-link" onClick={toggleNav}>
-                  Home
-                </span>
-              </Link>
-              <Link to="/entries">
-                <span className="main-nav-link" onClick={toggleNav}>
-                  Diaries
-                </span>
+               <Link to="/">
+                <span className="main-nav-link">Home</span>
+              </Link> 
+             {/* <Link to="/">
+                <span className="main-nav-link">Public Entries</span>
+              </Link>*/}
+              <Link to="/gallery">
+                <span className="main-nav-link">Gallery</span>
               </Link>
               <Link to="/new-entry">
-                <span className="main-nav-link" onClick={toggleNav}>
-                  New Entry
-                </span>
+                <span className="main-nav-link">New Entry</span>
               </Link>
-              <Link to="/entries">
-                <span className="main-nav-link" onClick={toggleNav}>
-                  Profile
-                </span>
+              <Link to="/my-profile">
+                <span className="main-nav-link">Profile</span>
               </Link>
-              <Link to="/entries">
-                <span className="main-nav-link" onClick={toggleNav}>
+              <Link>
+                <span onClick={signOut} className="main-nav-link">
                   Logout
                 </span>
               </Link>
               <section className="theme-container">
-                <div onClick={()=>{changeTheme('red')}} className="theme-color red"></div>
-                <div onClick={()=>{changeTheme('indigo')}} className="theme-color indigo"></div>
-                <div onClick={()=>{changeTheme('pink')}}className="theme-color pink"></div>
-                <div onClick={()=>{changeTheme('green')}} className="theme-color green"></div>
-                <div onClick={()=>{changeTheme('teal')}}className="theme-color teal"></div>
+                <div
+                  onClick={() => {
+                    changeTheme("red");
+                  }}
+                  className="theme-color red"
+                ></div>
+                <div
+                  onClick={() => {
+                    changeTheme("indigo");
+                  }}
+                  className="theme-color indigo"
+                ></div>
+                <div
+                  onClick={() => {
+                    changeTheme("pink");
+                  }}
+                  className="theme-color pink"
+                ></div>
+                <div
+                  onClick={() => {
+                    changeTheme("green");
+                  }}
+                  className="theme-color green"
+                ></div>
+                <div
+                  onClick={() => {
+                    changeTheme("teal");
+                  }}
+                  className="theme-color teal"
+                ></div>
               </section>
             </div>
           </div>
