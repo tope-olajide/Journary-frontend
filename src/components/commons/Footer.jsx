@@ -1,8 +1,13 @@
 import React from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footer = () => {
     return (
         <>
-        <footer className="footer"><p>Copyright © 2019 My-Diary. All rights reserved | Designed with love by Temitope</p></footer>
+        <footer className="footer"><p>Copyright © 2020 My-Diary. All rights reserved | Developed with <FontAwesomeIcon
+              className=""
+              icon="heart"
+              size="1x"
+            /> by Temitope</p></footer>
         </>
     )
 }
