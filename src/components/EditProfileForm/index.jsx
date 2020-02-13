@@ -9,6 +9,8 @@ import handleNetworkError from "../../utils/networkErrorHandler";
 import { ToastContainer, toast } from "react-toastify";
 import jsonwebtoken from "jsonwebtoken";
 import { Store } from "../../Store";
+import LoadingPage from "../commons/LoadingPage";
+import ErrorPage from "../commons/ErrorPage";
 const EditProfile = () => {
     const { dispatch } = React.useContext(Store);
     const url = "http://127.0.0.1:9000/api/user";
@@ -66,8 +68,18 @@ const EditProfile = () => {
         return response.data
     };
     const  { data, error }  = useSWR(url, fetcher);
-    if (error) return <div>failed to load</div>
-    if (!data) return <div>loading...</div>
+    if (error)
+    return (
+      <>
+        <ErrorPage />
+      </>
+    );
+  if (!data)
+    return (
+      <>
+        <LoadingPage />
+      </>
+    );
     return (
         <>
         {console.log(data.userData[0].fullname)}

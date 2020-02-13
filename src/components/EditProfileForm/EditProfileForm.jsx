@@ -1,12 +1,12 @@
 import React from "react";
-import AuthNav from "../commons/AuthNav";
+import MainNavigationBar from "../commons/MainNavigationBar";
 import Footer from "../commons/Footer";
 import Image from "react-graceful-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const EditProfileForm = ({ handleChange, defaultAbout, toggleGalleryModal, profilePicture, isLoading, defaultEmail, defaultFullname,updateProfile }) => {
   return (
     <>
-      <AuthNav />
+      <MainNavigationBar />
       <section className="form-section">
         <form className="form-container register-form">
           <h1>Modify Your Profile</h1>
