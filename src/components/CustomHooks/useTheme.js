@@ -4,7 +4,7 @@ const useTheme = () => {
     const changeTheme = (themeColor) => {
         setTheme(themeColor);
         document.documentElement.setAttribute('data-theme', themeColor);
-        
+        localStorage.setItem("theme-color", themeColor);
         console.log(theme)
     }
     return {
