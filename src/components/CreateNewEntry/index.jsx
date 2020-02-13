@@ -8,6 +8,7 @@ import useForm from "../CustomHooks/useForm";
 import useToggleImageGallery from "../CustomHooks/useToggleImageGallery";
 import handleNetworkError from "../../utils/networkErrorHandler";
 import { ToastContainer, toast } from "react-toastify";
+import Footer from "../commons/Footer";
 import axios from "axios";
 const CreateNew = () => {
   const { state } = useContext(Store);
@@ -26,29 +27,36 @@ const CreateNew = () => {
     return setIsFeatureImage(!isFeatureImage);
   };
   const saveEntry = async () => {
-    const url = 'http://127.0.0.1:9000/api/entry';
+    const url = "http://127.0.0.1:9000/api/entry";
     const content = htmlContents;
     const title = inputs.title;
     const featureImageUrl = featureImage || state.temporaryFeatureImage;
-    try {
-        setIsLoading (true);
-        toast.info(`Saving entry...`, {
-            position: "bottom-left"
-          });
-          const response = await axios.post(`${url}`, {content,title,featureImageUrl});
-          const {
-            entry
-        } = response.data;
-        dispatch({
-            type: 'ADD_ENTRY',
-            entry
-        });
-        toast.success(`Diary Entry Added Successfully!`, {
-          position: "bottom-left"
-        })
-        setIsLoading (false);
+    const token = localStorage.getItem('token');
+const setHeaderToken = {
+    headers: {
+        authorization: token
     }
-    catch (error) {
+}
+    try {
+      setIsLoading(true);
+      toast.info(`Saving entry...`, {
+        position: "bottom-left"
+      });
+      const response = await axios.post(`${url}`, {
+        content,
+        title,
+        featureImageUrl
+      },setHeaderToken);
+      const { entry } = response.data;
+      dispatch({
+        type: "ADD_ENTRY",
+        entry
+      });
+      toast.success(`Diary Entry Added Successfully!`, {
+        position: "bottom-left"
+      });
+      setIsLoading(false);
+    } catch (error) {
       setIsLoading(false);
       const errorMessage = handleNetworkError(error);
       return toast.error(errorMessage, {
@@ -96,10 +104,11 @@ const CreateNew = () => {
           editorState={editorState}
           onEditorStateChange={onEditorStateChange}
         />
-        <button onClick={saveEntry} className="fit primary">
+        <div className="center"><button onClick={saveEntry} className="  primary fit mt-1">
           {isLoading ? "Saving..." : "Save"}
-        </button>
+        </button></div>
       </section>
+      <Footer />
       <ToastContainer />
     </>
   );
