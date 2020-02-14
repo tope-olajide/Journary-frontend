@@ -5,6 +5,8 @@ import EntryDetailsView from "./EntryDetailsView";
 import { Redirect } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import handleNetworkError from "../../utils/networkErrorHandler";
+import LoadingPage from "../commons/LoadingPage";
+import ErrorPage from "../commons/ErrorPage";
 const token = localStorage.getItem("token");
 const setHeaderToken = {
   headers: {
@@ -50,8 +52,18 @@ const EntryDetails = ({ match }) => {
     setRedirectToModifyEntry(true)
   }
   const { data, error } = useSWR(url, fetcher);
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (error)
+  return (
+    <>
+      <ErrorPage />
+    </>
+  );
+if (!data)
+  return (
+    <>
+      <LoadingPage />
+    </>
+  );
   if (redirectToHomepage) {
     return <Redirect to="/" />;
   }
