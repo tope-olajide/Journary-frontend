@@ -29,17 +29,14 @@ const PublicEntries = () => {
   return (
     <>
       <main class="entries-container">
-        {!(data.entries.length)?<div>You currently do not have any Public Entries</div>:
+        {!(data.entries.length)?<div className="no-entry"><h1>You do not have any private entries yet.<br /> When you do, they will appear here.</h1></div>:
         data.entries.map(entry => {
           return (
-            <EntriesView
-              title={entry.title}
-              entry_image_url={entry.entry_image_url}
+            <EntriesView key={entry.id} {...entry}
             />
           );
         })}
       </main>
-      <LoadMoreButton />
     </>
   );
 };
