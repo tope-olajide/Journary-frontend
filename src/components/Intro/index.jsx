@@ -4,12 +4,14 @@ import expression from '../../images/dairy-expression.jpg'
 import a_friendly_reminder from '../../images/a_friendly_reminder.png'
 import security from '../../images/security.jpg'
 import AuthNav from '../commons/AuthNav';
-import Footer from '../commons/Footer'
+import Footer from '../commons/Footer';
+import HeroImage from '../commons/HeroImage'
+import paper_and_pen from '../../images/pen-and-paper.jpg'
 const IntroPage = () => {
     return (
         <>
         <AuthNav />
-        <section className="hero-image"></section>
+        <HeroImage heroImage={paper_and_pen} heroCaption={"Welcome to Journary"} />
 <main className="feature-container">
 <section className="column-1"><img className="column-img"alt={expression} src={expression} /></section>
 <article className="column-2">

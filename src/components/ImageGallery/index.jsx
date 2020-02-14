@@ -4,12 +4,11 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Footer from "../commons/Footer"
 import ImageGallery from './ImageGallery'
 import UploadNewImage from './UploadNewImage';
-
 const Gallery = () => {
-
     return (
         <>
         <MainNavigationBar />
+        <section className="gallery-container">
         <Tabs>
         <TabList className="tab-nav">
                 <Tab selectedClassName="tab-nav-active">
@@ -21,8 +20,7 @@ const Gallery = () => {
               </TabList>
               <TabPanel><ImageGallery isGalleryPage={true} /></TabPanel>
               <TabPanel><UploadNewImage /></TabPanel>
-       </Tabs><Footer /> </>
-       
+       </Tabs></section><Footer /> </>
     )
 }
 export default Gallery
