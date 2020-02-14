@@ -8,6 +8,7 @@ import App from './App';
 import "react-toastify/dist/ReactToastify.css";
 import * as serviceWorker from './serviceWorker';
 import { StoreProvider } from './Store';
+document.documentElement.setAttribute('data-theme', localStorage.getItem("theme-color"));
 ReactDOM.render(<StoreProvider><BrowserRouter><App /></BrowserRouter></StoreProvider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
