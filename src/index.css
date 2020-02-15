@@ -870,7 +870,7 @@ position: absolute;
   border-top: 1px solid #3498db;
   width: 20px;
   height:21px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
+  -webkit-animation: spin 2s linear infinite; 
   animation: spin .7s linear infinite;
   margin:auto
 }
@@ -919,14 +919,10 @@ text-align:center
 .editor-min{
   min-height: 300px;
   padding: 10px;
-  /* border: 3px solid rgb(255, 255, 255);
-  border-radius: 3px; */
+
 }
 .editor-max{
   height: 100%;padding: 10px;overflow: auto;
-  /* color:white;
-  border: 3px solid rgb(255, 255, 255);
-  border-radius: 3px; */
   z-index: 101;
 }
 .editor-wrapper-max {
