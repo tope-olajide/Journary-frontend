@@ -15,7 +15,9 @@ const EditorView = ({
           wrapperClassName={
             state.maximizeEditor ? "editor-wrapper-max" : "editor-wrapper-min"
           }
-          editorClassName="editor"
+          editorClassName={
+            state.maximizeEditor ? "editor-max" : "editor-min"
+          }
           toolbarClassName="toolbar"
           toolbar={{
             inline: { inDropdown: true },

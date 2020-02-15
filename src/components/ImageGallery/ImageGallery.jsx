@@ -2,6 +2,9 @@ import React from "react";
 import Image from 'react-graceful-image'
 import axios from 'axios';
 import useSWR from "swr";
+import LoadingPage from "../commons/LoadingPage";
+import ErrorPage from "../commons/ErrorPage";
+
 const token = localStorage.getItem('token');
 const setHeaderToken = {
   headers: {
@@ -35,9 +38,18 @@ const ImageGallery = ({ addImage, toggleGalleryModal, isGalleryPage }) => {
   };
 
   const  { data,revalidate, error }  = useSWR(url, fetcher);
-  console.log (data)
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (error)
+    return (
+      <>
+        <ErrorPage />
+      </>
+    );
+  if (!data)
+    return (
+      <>
+        <LoadingPage />
+      </>
+    );
   return (
     <>
       <div class="modal-body">

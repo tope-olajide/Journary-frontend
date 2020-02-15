@@ -3,7 +3,6 @@ import useToggleImageUpload from "../CustomHooks/useToggleImageGallery";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import UploadNewImage from "../ImageGallery/UploadNewImage";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { Store } from "../../Store";
 const ImageGalleryUploadModal = ({ addImage, toggleGalleryModal }) => {
   return (
     <>
@@ -22,7 +21,6 @@ const ImageGalleryUploadModal = ({ addImage, toggleGalleryModal }) => {
               </Tab>
             </TabList>
           </section>
-          <div class="modal-body">
             <TabPanel>
               <ImageGallery
                 addImage={addImage}
@@ -32,7 +30,6 @@ const ImageGalleryUploadModal = ({ addImage, toggleGalleryModal }) => {
             <TabPanel>
               <UploadNewImage />
             </TabPanel>
-          </div>
         </section>
       </Tabs>
     </>

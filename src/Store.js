@@ -4,10 +4,10 @@ export function StoreProvider(props) {
   const initialState = {
     user: {},
     entries: [],
-    currentPage: 1,
+    currentPage: 0,
     displayUploadModal: false,
     temporaryFeatureImage: "",
-    imageGallery:[],
+    imageGallery: [],
     maximizeEditor: false
   };
   function reducer(state, action) {
@@ -20,7 +20,7 @@ export function StoreProvider(props) {
       case "FETCH_ALL_PUBLIC_ENTRIES":
         return {
           ...state,
-          entries: action.entries,
+          entries: state.entries.concat(action.entries),
           currentPage: action.currentPage
         };
       case "SET_TEMPORARY_FEATURE_IMAGE":
@@ -31,15 +31,15 @@ export function StoreProvider(props) {
           entries: state.entries.concat([action.entries]),
           currentPage: action.currentPage
         };
-        case "SET_IMAGE_GALLERY":
+      case "SET_IMAGE_GALLERY":
         return {
           ...state,
           imageGallery: state.imageGallery.concat(action.gallery)
         };
-        case "TOGGLE_EDITOR_SIZE":
-          return {...state, maximizeEditor:action.payload}
+      case "TOGGLE_EDITOR_SIZE":
+        return { ...state, maximizeEditor: action.payload };
       default:
-        return state;
+        return state; 
     }
   }
   const [state, dispatch] = React.useReducer(reducer, initialState);

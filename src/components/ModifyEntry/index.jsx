@@ -11,6 +11,8 @@ import useForm from "../CustomHooks/useForm";
 import useToggleImageGallery from "../CustomHooks/useToggleImageGallery";
 import handleNetworkError from "../../utils/networkErrorHandler";
 import { ToastContainer, toast } from "react-toastify";
+import LoadingPage from "../commons/LoadingPage";
+import ErrorPage from "../commons/ErrorPage";
 const ModifyEntry = ({match}) => {
 const {entryId} = match.params;
 const [featureImage, setFeatureImage] = useState("");
@@ -18,9 +20,11 @@ const [isFeatureImage, setIsFeatureImage] = useState(false);
 const { inputs, handleChange } = useForm();
 const {  htmlContents, onEditorStateChange, editorState,setEditorState } = useEditor();
 const { toggleGalleryModal, isGalleryModal } = useToggleImageGallery();
+
 const [isLoading, setIsLoading] = useState(false);
 const [isEntryPrivate, setIsEntryPrivate] = useState(true);
 const token = localStorage.getItem('token');
+
 const setHeaderToken = {
     headers: {
         authorization: token
@@ -47,9 +51,9 @@ const addImage = imageUrl => {
      const url = `http://127.0.0.1:9000/api/entry/${entryId}`;
     try {
         setIsLoading (true);
-        toast.info(`Updating entry...`, {
-            position: "bottom-left"
-          });
+        toast.info(`Updating entry...`,{
+          position: "top-center"
+        });
            await axios.put(`${url}`, {title,isPrivate,content,featureImageUrl },setHeaderToken);
           
         toast.success(` Entry Updated Successfully!`, {
@@ -82,8 +86,18 @@ setFeatureImage(defaultContent[0].entry_image_url);
     return response.data
 };
 const  { data, error }  = useSWR(url, fetcher);
-if (error) return <div>failed to load</div>
-if (!data) return <div>loading...</div>
+if (error)
+return (
+  <>
+    <ErrorPage />
+  </>
+);
+if (!data)
+return (
+  <>
+    <LoadingPage />
+  </>
+);
 console.log(data.entry[0].content)
 
   return (
@@ -131,7 +145,7 @@ console.log(data.entry[0].content)
           editorState={editorState}
           onEditorStateChange={onEditorStateChange}
         />
-        <button onClick={updateEntry} className="fit primary">
+        <button onClick={updateEntry} className="mt-2 fit primary">
           {isLoading ? "Updating..." : "Modify Entry"}
         </button>
       </section>

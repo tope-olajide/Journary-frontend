@@ -4,6 +4,8 @@ import axios from "axios";
 import useSWR from "swr";
 import { ToastContainer, toast } from "react-toastify";
 import handleNetworkError from "../../utils/networkErrorHandler";
+import LoadingPage from "../commons/LoadingPage";
+import ErrorPage from "../commons/ErrorPage";
 const token = localStorage.getItem("token");
 
 const setHeaderToken = {
@@ -42,8 +44,18 @@ const Reminder = () => {
       };
       const url = `http://127.0.0.1:9000/api/user/get-reminder`;
     const { data, error } = useSWR(url, fetcher);
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+    if (error)
+    return (
+      <>
+        <ErrorPage />
+      </>
+    );
+  if (!data)
+    return (
+      <>
+        <LoadingPage />
+      </>
+    );
  return (
      <>
      <ReminderView setReminder={setReminder} schedule={schedule} saveReminder={saveReminder} />

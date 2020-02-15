@@ -5,14 +5,12 @@ import jsonwebtoken from "jsonwebtoken";
 import validateUser from "./validateSignUpData";
 import handleNetworkError from "../../utils/networkErrorHandler";
 import { Store } from "../../Store";
-import { Redirect } from "react-router-dom";
 import SignUpView from "./SignUpView";
 import { ToastContainer, toast } from "react-toastify";
 
 const SignUpUser = () => {
   const url = "http://127.0.0.1:9000/api/user/";
   const [isLoading, setIsLoading] = useState(false);
-  const [redirectToHomepage, setRedirectToHomepage] = useState(false);
   const { inputs, handleChange } = useForm();
   const { dispatch } = React.useContext(Store);
   const handleFormSubmit = async event => {
@@ -34,7 +32,7 @@ const SignUpUser = () => {
       axios.defaults.headers.common.authorization = token;
       toast.success(`Welcome ${inputs.username}`);
       setTimeout(() => {
-        setRedirectToHomepage(true);
+        window.location = "/intro"
       }, 1000);
       setIsLoading(false);
       const userData = jsonwebtoken.decode(localStorage.getItem("token"));
@@ -50,9 +48,7 @@ const SignUpUser = () => {
       });
     }
   };
-  if (redirectToHomepage) {
-    return <Redirect to="/" />;
-  }
+
   return (
     <>
       <SignUpView

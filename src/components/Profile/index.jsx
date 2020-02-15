@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from 'react'
 import MainNavigationBar from '../commons/MainNavigationBar'
 import Image from 'react-graceful-image';
@@ -8,6 +9,10 @@ import PublicEntries from './PublicEntries';
 import useSWR from 'swr'
 import Reminder from '../Reminder'
 import Footer from '../commons/Footer'
+import BookDiaryPen from '../../images/Book-Diary-Pen.jpg'
+import HeroImage from '../commons/HeroImage'
+import LoadingPage from "../commons/LoadingPage";
+import ErrorPage from "../commons/ErrorPage";
 const MyProfile = () => {
 const token = localStorage.getItem("token");
 const setHeaderToken = {
@@ -25,12 +30,22 @@ const setHeaderToken = {
     return response.data;
   };
   const { data, error } = useSWR(url, fetcher);
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (error)
+    return (
+      <>
+        <ErrorPage />
+      </>
+    );
+  if (!data)
+    return (
+      <>
+        <LoadingPage />
+      </>
+    );
 
     return( <>
     <MainNavigationBar />
-    <section class="profile-banner"></section>
+    <HeroImage heroImage={BookDiaryPen} heroCaption={"My Profile"} />
       <main class="profile-container">
     
     <section class="info-section">
@@ -46,11 +61,11 @@ const setHeaderToken = {
             </tr>
         </table>
         <div className="center mt-1">
-         <button>Edit Profile</button></div>
+        <Link to="/edit-profile"><button>Edit Profile</button></Link></div>
     </section>
     
     <section class="tab-section"><Tabs>
-    <TabList className="tab-nav">
+    <TabList className="tab-nav profile-tab-nav">
                 <Tab selectedClassName="tab-nav-active">
                   <p>Private Entries</p>
                 </Tab>
@@ -58,7 +73,7 @@ const setHeaderToken = {
                   <p>Public Entries</p>
                 </Tab>
               <Tab selectedClassName="tab-nav-active">
-                  <p>Settings</p>
+                  <p>Reminder</p>
               </Tab>
               </TabList>
               <TabPanel><PrivateEntries /></TabPanel>
