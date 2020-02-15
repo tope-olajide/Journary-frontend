@@ -12,7 +12,6 @@
   "bugs": {
     "url": "https://github.com/tope-olajide/journary-frontend/issues"
   },
-  "homepage": "https://github.com/tope-olajide/journary-frontend#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
