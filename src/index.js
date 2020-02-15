@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
+import App from './App';
+import "react-toastify/dist/ReactToastify.css";
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'react-tabs/style/react-tabs.css';
 import './index.css';
-import App from './App';
-import "react-toastify/dist/ReactToastify.css";
 import * as serviceWorker from './serviceWorker';
 import { StoreProvider } from './Store';
 document.documentElement.setAttribute('data-theme', localStorage.getItem("theme-color"));
