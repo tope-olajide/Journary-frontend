@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import useToggleImageUpload from "../CustomHooks/useToggleImageGallery";
+import React from "react";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import UploadNewImage from "../ImageGallery/UploadNewImage";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";

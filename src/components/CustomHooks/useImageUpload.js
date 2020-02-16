@@ -29,7 +29,7 @@ const useSelectImageFile =  () => {
       );
       const imageUpload = async (files) => {
         
-        const url = "https://journary.cleverapps.io/api/user";
+        const url = "https://journary.herokuapp.com/api/user";
         if(!files.length){
             return {
                 success: false,

@@ -48,7 +48,7 @@ const addImage = imageUrl => {
       const {entryId} = match.params
       console.log({title,isPrivate,content,featureImageUrl });
       
-     const url = `https://journary.cleverapps.io/api/entry/${entryId}`;
+     const url = `https://journary.herokuapp.com/api/entry/${entryId}`;
     try {
         setIsLoading (true);
         toast.info(`Updating entry...`,{
@@ -72,7 +72,7 @@ const addImage = imageUrl => {
   const handleSelectChange=(event)=> {
     setIsEntryPrivate(event.target.value);
   }
-const url = `https://journary.cleverapps.io/api/entry/get-entry/${entryId}`;
+const url = `https://journary.herokuapp.com/api/entry/get-entry/${entryId}`;
 const fetcher = async (...args) => {
 const response = await axios.get(`${args}`,setHeaderToken);
 const defaultContent = response.data.entry;

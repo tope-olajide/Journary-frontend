@@ -10,7 +10,7 @@ const setHeaderToken = {
   }
 };
 const PrivateEntries = () => {
-  const url = "https://journary.cleverapps.io/api/entry/private";
+  const url = "https://journary.herokuapp.com/api/entry/private";
   const [pageNumber, setPageNumber] = useState(1);
   const fetcher = async (...args) => {
     const response = await axios.get(

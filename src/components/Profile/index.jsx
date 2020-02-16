@@ -20,7 +20,7 @@ const setHeaderToken = {
     authorization: token
   }
 };
-  const url = "https://journary.cleverapps.io/api/user";
+  const url = "https://journary.herokuapp.com/api/user";
   const fetcher = async (...args) => {
     const response = await axios.get(
       `${args}`,

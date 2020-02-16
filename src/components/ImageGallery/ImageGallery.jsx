@@ -12,7 +12,7 @@ const setHeaderToken = {
   }
 }
 const ImageGallery = ({ addImage, toggleGalleryModal, isGalleryPage }) => {
-  const url = 'https://journary.cleverapps.io/api/user/gallery';
+  const url = 'https://journary.herokuapp.com/api/user/gallery';
   const deleteImage = async (imageId) => {
     const response = await axios.delete(`${url}/${imageId}`, setHeaderToken);
     revalidate()
