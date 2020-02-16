@@ -13,7 +13,7 @@ import LoadingPage from "../commons/LoadingPage";
 import ErrorPage from "../commons/ErrorPage";
 const EditProfile = () => {
     const { dispatch } = React.useContext(Store);
-    const url = "http://127.0.0.1:9000/api/user";
+    const url = "https://journary.cleverapps.io/api/user";
     const { inputs, handleChange } = useForm({fullname:""});
     const { toggleGalleryModal, isGalleryModal } = useToggleImageGallery();
     const [profilePicture, setProfilePicture] = useState("");

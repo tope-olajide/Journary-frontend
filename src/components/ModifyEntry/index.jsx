@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { EditorState, ContentState } from "draft-js";
 import htmlToDraft from 'html-to-draftjs';
 import axios from 'axios'
@@ -48,7 +48,7 @@ const addImage = imageUrl => {
       const {entryId} = match.params
       console.log({title,isPrivate,content,featureImageUrl });
       
-     const url = `http://127.0.0.1:9000/api/entry/${entryId}`;
+     const url = `https://journary.cleverapps.io/api/entry/${entryId}`;
     try {
         setIsLoading (true);
         toast.info(`Updating entry...`,{
@@ -72,7 +72,7 @@ const addImage = imageUrl => {
   const handleSelectChange=(event)=> {
     setIsEntryPrivate(event.target.value);
   }
-const url = `http://127.0.0.1:9000/api/entry/get-entry/${entryId}`;
+const url = `https://journary.cleverapps.io/api/entry/get-entry/${entryId}`;
 const fetcher = async (...args) => {
 const response = await axios.get(`${args}`,setHeaderToken);
 const defaultContent = response.data.entry;

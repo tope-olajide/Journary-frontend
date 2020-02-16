@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import useForm from "../CustomHooks/useForm";
 import SignInView from './SignInView'
 const SignIn = () => {
-    const url = "http://127.0.0.1:9000/api/user/";
+    const url = "https://journary.cleverapps.io/api/user/";
     const [isLoading, setIsLoading] = useState(false);
     const { inputs, handleChange } = useForm();
     const { dispatch } = React.useContext(Store);

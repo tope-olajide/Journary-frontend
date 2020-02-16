@@ -19,7 +19,7 @@ const EntryDetails = ({ match }) => {
   const [redirectToModifyEntry, setRedirectToModifyEntry] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { entryId } = match.params;
-  const url = `http://127.0.0.1:9000/api/entry/${entryId}`;
+  const url = `https://journary.cleverapps.io/api/entry/${entryId}`;
   const fetcher = async (...args) => {
     const response = await axios.get(`${args}`, setHeaderToken);
     return response.data;

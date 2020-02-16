@@ -20,7 +20,7 @@ const setHeaderToken = {
     authorization: token
   }
 };
-  const url = "http://127.0.0.1:9000/api/user";
+  const url = "https://journary.cleverapps.io/api/user";
   const fetcher = async (...args) => {
     const response = await axios.get(
       `${args}`,

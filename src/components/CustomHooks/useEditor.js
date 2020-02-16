@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { EditorState, convertToRaw, ContentState } from "draft-js";
 import draftToHtml from "draftjs-to-html";
-import htmlToDraft from 'html-to-draftjs';
+
 const useEditor = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [htmlContents, setHtmlContents] = useState("");

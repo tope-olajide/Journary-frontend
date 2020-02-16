@@ -18,7 +18,7 @@ const setHeaderToken = {
 };
 
 const AllPublicEntries = () => {
-  const url = "http://127.0.0.1:9000/api/entry";
+  const url = "https://journary.cleverapps.io/api/entry";
   const { state, dispatch } = useContext(Store);
   const [pageNumber, setPageNumber] = useState(1);
   const fetchNextDate = async () => {

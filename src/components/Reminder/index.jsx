@@ -23,7 +23,7 @@ const Reminder = () => {
     };
     const saveReminder= async ()=> {
         try {
-            const url = `http://127.0.0.1:9000/api/user/set-reminder`;
+            const url = `https://journary.cleverapps.io/api/user/set-reminder`;
             await axios.post(`${url}`, {schedule}, setHeaderToken);
             toast.success(`Reminder set successfully`);
                     setTimeout(() => {
@@ -42,7 +42,7 @@ const Reminder = () => {
         setSchedule(response.data.reminder)
         return response.data;
       };
-      const url = `http://127.0.0.1:9000/api/user/get-reminder`;
+      const url = `https://journary.cleverapps.io/api/user/get-reminder`;
     const { data, error } = useSWR(url, fetcher);
     if (error)
     return (

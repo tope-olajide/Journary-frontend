@@ -27,7 +27,7 @@ const CreateNew = () => {
     return setIsFeatureImage(!isFeatureImage);
   };
   const saveEntry = async () => {
-    const url = "http://127.0.0.1:9000/api/entry";
+    const url = "https://journary.cleverapps.io/api/entry";
     const content = htmlContents;
     const title = inputs.title;
     const featureImageUrl = featureImage || state.temporaryFeatureImage;

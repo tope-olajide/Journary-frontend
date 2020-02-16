@@ -9,7 +9,7 @@ import SignUpView from "./SignUpView";
 import { ToastContainer, toast } from "react-toastify";
 
 const SignUpUser = () => {
-  const url = "http://127.0.0.1:9000/api/user/";
+  const url = "https://journary.cleverapps.io/api/user/";
   const [isLoading, setIsLoading] = useState(false);
   const { inputs, handleChange } = useForm();
   const { dispatch } = React.useContext(Store);
