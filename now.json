@@ -1,0 +1,7 @@
+{
+    "env": {
+      "JWT_SECRET": "@77iC##$8ngN^^!@Hw7A",
+      "CLOUDINARY_API_KEY": "139423638121511",
+      "CLOUDINARY_UPLOAD_PRESET": "sijxpjkn"
+    }
+  }
