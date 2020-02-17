@@ -3,5 +3,10 @@
       "JWT_SECRET": "@jwt_secret",
       "CLOUDINARY_API_KEY": "@cloudinary_api_key",
       "CLOUDINARY_UPLOAD_PRESET": "@cloudinary_upload_preset"
+    },
+    "build": {
+        "JWT_SECRET": "@jwt_secret",
+        "CLOUDINARY_API_KEY": "@cloudinary_api_key",
+        "CLOUDINARY_UPLOAD_PRESET": "@cloudinary_upload_preset"
     }
   }
