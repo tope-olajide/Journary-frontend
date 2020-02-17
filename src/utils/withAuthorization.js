@@ -28,7 +28,7 @@ export default function ValidateUser(ChildComponent) {
               type: "SET_CURRENT_USER",
               userData: {}
             });
-            window.location = "/intror";
+            window.location = "/intro";
           }
         });
       }
