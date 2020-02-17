@@ -9,7 +9,7 @@ export default function ValidateUser(ChildComponent) {
     const Authenticate = (props)=> {
         const { dispatch } = React.useContext(Store);
         useEffect(() => {
-        const JWT_SECRET = "77iC8ngNHw7A";
+        const JWT_SECRET = process.env.JWT_SECRET;
       const token = localStorage.getItem("token");
       console.log(token)
       if (!token) {
