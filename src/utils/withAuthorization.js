@@ -20,7 +20,7 @@ export default function ValidateUser(ChildComponent) {
         });
         window.location = "/intro";
       } else if (token) {
-        jsonwebtoken.verify(token, "77ic##$8ngn", (error, decoded) => {
+        jsonwebtoken.verify(token, process.env.JWT_SECRET, (error, decoded) => {
           if (error || decoded.expiresIn < new Date().getTime() / 1000) {
             localStorage.removeItem("token");
             delete axios.defaults.headers.common["authorization"];
