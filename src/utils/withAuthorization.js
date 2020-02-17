@@ -9,7 +9,6 @@ export default function ValidateUser(ChildComponent) {
     const Authenticate = (props)=> {
         const { dispatch } = React.useContext(Store);
         useEffect(() => {
-        const JWT_SECRET = process.env.JWT_SECRET;
       const token = localStorage.getItem("token");
       console.log(token)
       if (!token) {
@@ -21,7 +20,7 @@ export default function ValidateUser(ChildComponent) {
         });
         window.location = "/intro";
       } else if (token) {
-        jsonwebtoken.verify(token, JWT_SECRET, (error, decoded) => {
+        jsonwebtoken.verify(token, process.env.JWT_SECRET, (error, decoded) => {
           if (error || decoded.expiresIn < new Date().getTime() / 1000) {
             localStorage.removeItem("token");
             delete axios.defaults.headers.common["authorization"];
