@@ -1,6 +1,6 @@
 {
     "env": {
-      "JWT_SECRET": "77ic##$8ngn",
+      "JWT_SECRET": "@77ic##$8ngn",
       "CLOUDINARY_API_KEY": "139423638121511",
       "CLOUDINARY_UPLOAD_PRESET": "sijxpjkn"
     }
