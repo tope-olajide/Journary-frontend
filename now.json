@@ -1,6 +1,6 @@
 {
     "env": {
-      "JWT_SECRET": "@jwt_secret",
+      "JWT_SECRET": "@JWT_SECRET",
       "CLOUDINARY_API_KEY": "@cloudinary_api_key",
       "CLOUDINARY_UPLOAD_PRESET": "@cloudinary_upload_preset"
     }
