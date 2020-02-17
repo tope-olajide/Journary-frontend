@@ -1,7 +1,7 @@
 {
     "env": {
-      "JWT_SECRET": "77ic##$8ngn",
-      "CLOUDINARY_API_KEY": "139423638121511",
-      "CLOUDINARY_UPLOAD_PRESET": "sijxpjkn"
+      "JWT_SECRET": "@jwt_secret",
+      "CLOUDINARY_API_KEY": "@cloudinary_api_key",
+      "CLOUDINARY_UPLOAD_PRESET": "@cloudinary_upload_preset"
     }
   }
