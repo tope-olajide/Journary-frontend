@@ -10,7 +10,7 @@ const setHeaderToken = {
   }
 };
 const PublicEntries = () => {
-  const url = "https://journary.cleverapps.io/api/entry/public";
+  const url = "https://journary.herokuapp.com/api/entry/public";
   const [pageNumber, setPageNumber] = useState(1);
   const fetcher = async (...args) => {
     const response = await axios.get(

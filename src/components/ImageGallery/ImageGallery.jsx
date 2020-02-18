@@ -2,8 +2,8 @@ import React from "react";
 import Image from 'react-graceful-image'
 import axios from 'axios';
 import useSWR from "swr";
-import LoadingPage from "../commons/LoadingPage";
-import ErrorPage from "../commons/ErrorPage";
+import LoadingPage from "../commons/LoadingPage/LoadingView";
+import ErrorPage from "../commons/ErrorPage/ErrorPageView";
 
 const token = localStorage.getItem('token');
 const setHeaderToken = {

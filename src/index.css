@@ -428,7 +428,7 @@ display: flex;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: #ffffff;
   cursor: pointer;
   width: 90%;
@@ -437,7 +437,7 @@ display: flex;
 }
 @media screen and (max-width: 750px) {
   .entry-title {
-    font-size: .7rem;
+    font-size: 1.1rem;
   }
   .hero-text{
     font-size: 1.8rem;
@@ -851,7 +851,7 @@ button.primary:active,
   100% { background-color: #f44336; }
 }
 .loading-container {
-height:100vh;width: 100%;
+height:100%;width: 100%;
 color: white;
 background-color: #e74c3c;
 animation: bg-color 7s infinite;
@@ -1283,7 +1283,7 @@ cursor: pointer;
   background-color:#009688;
 }
 .error-page-container{
-  height:100vh;
+  height:100%;
   display: flex;
   flex-direction: column;
   color: white;

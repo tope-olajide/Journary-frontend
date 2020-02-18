@@ -1,11 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MainNavigationBar from "../commons/MainNavigationBar";
-import Footer from "../commons/Footer";
-const ErrorPage = () => {
+import { Link } from "react-router-dom";
+const ErrorPageView = () => {
   return (
     <>
-      <MainNavigationBar />
       <section className="error-page-container">
         <section>
           <h1>
@@ -18,10 +16,9 @@ const ErrorPage = () => {
         </section>
         <h1> Oops! Something went wrong</h1>
         <p> Why not try refreshing this page or go back to homepage</p>
-        <button> Back to Homepage</button>
+        <Link to="/"><button> Back to Homepage</button></Link>
       </section>
-      <Footer />
     </>
   );
 };
-export default ErrorPage;
+export default ErrorPageView;

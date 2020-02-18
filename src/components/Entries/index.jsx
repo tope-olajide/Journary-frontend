@@ -8,8 +8,8 @@ import MainNavigationBar from "../commons/MainNavigationBar";
 import Footer from "../commons/Footer";
 import InfiniteScroll from "react-infinite-scroll-component";
 import diaryImage from "../../images/diary.jpg";
-import LoadingPage from "../commons/LoadingPage";
-import ErrorPage from "../commons/ErrorPage";
+import LoadingPage from "../commons/LoadingPage/LoadingView";
+import ErrorPage from "../commons/ErrorPage/ErrorPageView";
 const token = localStorage.getItem("token");
 const setHeaderToken = {
   headers: {

@@ -7,7 +7,7 @@ const EntriesView = ({title, entry_image_url, entry_id}) => {
       <Image className="column-img"alt={entry_image_url} src={entry_image_url} />
       
         <div class="entry-title">
-          <h1>{title}</h1>
+          <p>{title}</p>
         </div>
       </Link>
         </>
