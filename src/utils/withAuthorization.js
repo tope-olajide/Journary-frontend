@@ -20,7 +20,6 @@ export default function ValidateUser(ChildComponent) {
         });
         window.location = "/intro";
       } else if (token) {
-        console.log(process.env.JWT_SECRET)
         jsonwebtoken.verify(token, process.env.JWT_SECRET, (error, decoded) => {
           if (error || decoded.expiresIn < new Date().getTime() / 1000) {
             localStorage.removeItem("token");
