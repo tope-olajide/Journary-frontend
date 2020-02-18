@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import jsonwebtoken from "jsonwebtoken";
 import { Store } from "../Store";
 import axios from "axios";
+import jwtDecode from 'jwt-decode'
 require("dotenv").config();
 
 export default function ValidateUser(ChildComponent) {
@@ -10,7 +11,6 @@ export default function ValidateUser(ChildComponent) {
         const { dispatch } = React.useContext(Store);
         useEffect(() => {
       const token = localStorage.getItem("token");
-      console.log(token)
       if (!token) {
         localStorage.removeItem("token");
         delete axios.defaults.headers.common["authorization"];
@@ -20,8 +20,8 @@ export default function ValidateUser(ChildComponent) {
         });
         window.location = "/intro";
       } else if (token) {
-        jsonwebtoken.verify(token, process.env.JWT_SECRET, (error, decoded) => {
-          if (error || decoded.expiresIn < new Date().getTime() / 1000) {
+        const decoded = jwtDecode(token);
+        if (decoded.exp < new Date().getTime() / 1000) {
             localStorage.removeItem("token");
             delete axios.defaults.headers.common["authorization"];
             dispatch({
@@ -30,7 +30,6 @@ export default function ValidateUser(ChildComponent) {
             });
             window.location = "/intro";
           }
-        });
       }
     },[]);
 
