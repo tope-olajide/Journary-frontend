@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footer = () => {
     return (
         <>
-        <footer className="footer"><p>Copyright © 2020 My-Diary. All rights reserved | Developed with <FontAwesomeIcon
+        <footer className="footer"><p>Copyright © 2020 Journary. All rights reserved | Developed with <FontAwesomeIcon
               className=""
               icon="heart"
               size="1x"
