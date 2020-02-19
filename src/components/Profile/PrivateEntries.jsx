@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import useSWR from "swr";
 import axios from "axios";
 import EntriesView from "../Entries/EntriesView";
-
+import LoadingPage from "../commons/LoadingPage/LoadingView";
+import ErrorPage from "../commons/ErrorPage/ErrorPageView";
 const token = localStorage.getItem("token");
 const setHeaderToken = {
   headers: {
@@ -20,8 +21,8 @@ const PrivateEntries = () => {
     return response.data;
   };
   const { data, error } = useSWR(url, fetcher);
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (error) return <div><ErrorPage /></div>;
+  if (!data) return <div><LoadingPage /></div>;
   return (
     <>
       <main class="entries-container">

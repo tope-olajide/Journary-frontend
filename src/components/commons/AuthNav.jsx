@@ -27,7 +27,6 @@ const AuthNav = () =>{
                 <div onClick={()=>{changeTheme('teal')}}className="theme-color teal"></div>
               </section>
           </div>
-          
         </div>
       <div className="menu-icon" onClick={toggleNav}>
           <div className="bar1"></div>
@@ -35,7 +34,7 @@ const AuthNav = () =>{
           <div className="bar3"></div>
       </div>
       </section>
-        </nav>
+      </nav>
  </>)
 }
 export default AuthNav

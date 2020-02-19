@@ -44,7 +44,7 @@ const useSelectImageFile =  () => {
             // Initial FormData
             const formData = new FormData();
             formData.append("upload_preset", "sijxpjkn");
-            formData.append("api_key", process.env.CLOUDINARY_KEY);
+            formData.append("api_key", "139423638121511");
             formData.append("file", file);
             formData.append("timestamp", (Date.now() / 1000) | 0);
       

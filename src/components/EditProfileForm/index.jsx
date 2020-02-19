@@ -30,9 +30,7 @@ const EditProfile = () => {
         const email = inputs.email || data.userData[0].email;
         const about = inputs.about || data.userData[0].about;
         const imageUrl = data.userData[0].about || profilePicture;
-        
         const modifiedUserData = {fullname, email, about, imageUrl}
-        
         console.log(inputs)
         console.log(modifiedUserData)
         try{
