@@ -4,10 +4,17 @@ import axios from 'axios'
 import { Store } from "../../Store";
 require('dotenv').config();
 
-
+const token = localStorage.getItem("token");
+const setHeaderToken = {
+  headers: {
+    authorization: token
+  }
+};
 const useSelectImageFile =  () => {
   const { dispatch } = useContext(Store);
     const [files, setFiles] = useState([]);
+    const [isUploading, setIsUploading] = useState(false);
+    const [toastMessage, setToastMessage] = useState("");
     const { getRootProps, getInputProps } = useDropzone({
         accept: "image/*",
         onDrop: acceptedFiles => {
@@ -30,16 +37,17 @@ const useSelectImageFile =  () => {
       const imageUpload = async (files) => {
         
         const url = "https://journary.herokuapp.com/api/user";
-        if(!files.length){
-            return {
-                success: false,
-                message: 'No picture file has been selected'
-            }
+        if(!files.length) {
+          return setToastMessage ({
+                status: 'error',
+                message: 'No picture files were selected'
+            })
         }
         else{
         try{
         let uploadedImages = [];
         let failedUploads = [];
+        setIsUploading(true)
         const uploaders = files.map(async file => {
             // Initial FormData
             const formData = new FormData();
@@ -66,14 +74,16 @@ const useSelectImageFile =  () => {
             const { secure_url, public_id } = data;
             uploadedImages.push({ imageUrl: secure_url, imageId: public_id });
             console.log(uploadedImages);
+            setIsUploading(false)
           }
           catch (err) {
             console.log(file.name)
             failedUploads.push(file.name)
-            return {
-              success: false,
+            setIsUploading(false)
+            setToastMessage ({
+              status: 'error',
               message: `unable to upload ${file}`
-            };
+            });
           }
           });
           // Once all the files are uploaded
@@ -81,35 +91,38 @@ const useSelectImageFile =  () => {
         .all(uploaders)
         .then(async data => {
           if(failedUploads.length){
-            return {
-              success: false,
+            setIsUploading(false)
+            setToastMessage ({
+              status: 'error',
               message: `unable to upload ${failedUploads}`
-            }
+            })
           }
           const stringifiedImageUrl = JSON.stringify(uploadedImages);
-          const response = await axios.post(`${url}/gallery`, {stringifiedImageUrl})
+          const response = await axios.post(`${url}/gallery`, {stringifiedImageUrl}, setHeaderToken)
             const { uploadedPictures } = response.data;
             dispatch({  
               type: 'UPLOAD_PICTURES',
               uploadedPictures
             });
-            return {
-                  success:true,
+            setIsUploading(false)
+              setToastMessage({
+                  status: 'success',
                   message: 'Images saved successfully'
-              }
+              })
         }).catch((err)=>{
-          console.log(err)
-          return {
-            succes: false,
-            message: err
-        }
+          setIsUploading(false);
+        setToastMessage({
+          status: 'error',
+          message: err
+      })
         })}
         catch (err) {
+          setIsUploading(false)
           console.log(err)
-          return {
-              succes: false,
+          setToastMessage ({
+            status: 'error',
               message: err
-          }
+          })
         };
       }
     }
@@ -117,7 +130,9 @@ const useSelectImageFile =  () => {
         getRootProps,
         getInputProps,
         files,
-        imageUpload
+        imageUpload,
+        isUploading,
+        toastMessage
       }
 }
 export default useSelectImageFile;

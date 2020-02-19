@@ -13,6 +13,7 @@ import handleNetworkError from "../../utils/networkErrorHandler";
 import { ToastContainer, toast } from "react-toastify";
 import LoadingPage from "../commons/LoadingPage";
 import ErrorPage from "../commons/ErrorPage";
+import Footer from "../commons/Footer";
 const ModifyEntry = ({match}) => {
 const {entryId} = match.params;
 const [featureImage, setFeatureImage] = useState("");
@@ -150,6 +151,7 @@ console.log(data.entry[0].content)
         </button>
       </section>
       <ToastContainer />
+      <Footer />
     </>
   );
 }
