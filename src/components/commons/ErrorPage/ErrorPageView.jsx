@@ -16,8 +16,7 @@ const ErrorPageView = () => {
         </section>
         <h1> Oops! Something went wrong</h1>
         <p> Why not try refreshing this page or go back to homepage</p>
-        <Link to="/"><button> Back to Homepage</button></Link>
-      </section>
+        <Link to="/"><button> Back to Homepage</button></Link></section>
     </>
   );
 };

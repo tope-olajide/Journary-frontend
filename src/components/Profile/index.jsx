@@ -46,8 +46,7 @@ const setHeaderToken = {
     return( <>
     <MainNavigationBar />
     <HeroImage heroImage={BookDiaryPen} heroCaption={"My Profile"} />
-      <main class="profile-container">
-    
+    <main class="profile-container">
     <section class="info-section">
         <Image className="profile-image" src={data.userData[0].user_image_url} />
         <section class="user-info">
@@ -62,8 +61,7 @@ const setHeaderToken = {
         </table>
         <div className="center mt-1">
         <Link to="/edit-profile"><button>Edit Profile</button></Link></div>
-    </section>
-    
+    </section> 
     <section class="tab-section"><Tabs>
     <TabList className="tab-nav profile-tab-nav">
                 <Tab selectedClassName="tab-nav-active">
