@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'react-graceful-image'
 import axios from 'axios';
 import useSWR from "swr";
-import LoadingPage from "../commons/LoadingPage/LoadingView";
+import LoadingPage from "../commons/LoadingPage";
 import ErrorPage from "../commons/ErrorPage/ErrorPageView";
 
 const token = localStorage.getItem('token');
@@ -28,9 +28,9 @@ const ImageGallery = ({ addImage, toggleGalleryModal, isGalleryPage }) => {
   };
   const fetcher = async (...args) => {
       const response = await axios.get(`${args}`, setHeaderToken);
-      /*const { gallery } = response.data;
+      const { gallery } = response.data;
        console.log({ gallery })
-        dispatch({
+       /* dispatch({
           type: 'SET_IMAGE_GALLERY',
           gallery
       }); */ 
@@ -41,7 +41,7 @@ const ImageGallery = ({ addImage, toggleGalleryModal, isGalleryPage }) => {
   if (error)
     return (
       <>
-        <ErrorPage />
+        <div><ErrorPage /></div>
       </>
     );
   if (!data)
@@ -54,7 +54,8 @@ const ImageGallery = ({ addImage, toggleGalleryModal, isGalleryPage }) => {
     <>
       <div class="modal-body">
         <section className="image-gallery">
-          {data.gallery.map(image => {
+           
+          {(data.gallery.length)?data.gallery.map(image => {
             return (
               <main>
                 <Image src={image.image_url} alt={image.image_url} />
@@ -73,7 +74,13 @@ const ImageGallery = ({ addImage, toggleGalleryModal, isGalleryPage }) => {
                 ) }
               </main>
             );
-          })}
+          }):<div className="no-entry">
+          <h1>
+            No images were found in your gallery.
+            <br /> Select 'Upload New' tab to upload new pictures.
+          </h1>
+        </div>}
+
         </section>
       </div>
     </>
