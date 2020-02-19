@@ -104,6 +104,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background:var(--darken-4) /* var(--lighten-3) */;
+  height:100vh
 }
 .main-nav {
   display: flex;
@@ -428,7 +429,7 @@ display: flex;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #ffffff;
   cursor: pointer;
   width: 90%;
@@ -437,7 +438,7 @@ display: flex;
 }
 @media screen and (max-width: 750px) {
   .entry-title {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
   }
   .hero-text{
     font-size: 1.8rem;
@@ -852,18 +853,21 @@ button.primary:active,
   100% { background-color: #f44336; }
 }
 .loading-container {
-height:100%;width: 100%;
+height:100vh;width: 100%;
 color: white;
 background-color: #e74c3c;
 animation: bg-color 7s infinite;
 -webkit-animation: bg-color 7s infinite;
+}.loading{
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 .loading-container h1  {
-position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-shadow: 2px 1px rgb(37, 24, 26);
   text-align: center;
+  font-size: 1.7rem;
 }
 .loader {
   border: 2px solid #f3f3f3;
@@ -871,8 +875,8 @@ position: absolute;
   border-top: 1px solid #3498db;
   width: 20px;
   height:21px;
-  -webkit-animation: spin 2s linear infinite; 
-  animation: spin .7s linear infinite;
+  -webkit-animation: spin .8s linear infinite; 
+  animation: spin .8s linear infinite;
   margin:auto
 }
 @-webkit-keyframes spin {
@@ -954,13 +958,15 @@ text-align:center
   left: 50%;
   transform: translate(-50%, -50%);
   width: 98%; 
-  height: 110%; 
+  height: 100%; 
   position: fixed;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6),0 6px 20px 0 rgba(0,0,0,0.6);
   background-color:var(--darken-4);
   z-index: 100;
   overflow: auto;
   display: block;
+  padding-top:10px;
+  margin-top:10px;
 }
 
 @-webkit-keyframes animatetop {
@@ -1284,18 +1290,29 @@ cursor: pointer;
   background-color:#009688;
 }
 .error-page-container{
-  height:100%;
+  height:100vh;
   display: flex;
   flex-direction: column;
   color: white;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  text-align:center;
 }
 .error-page-container h1{
   font-size: 2.6rem;
-  margin:10px
+  margin:10px;
+  color: white;
+  text-align:center;
 }
 .error-page-container p{
   font-size: 1.5rem;
   margin:0 0 20px 0
+}
+@media screen and (max-width: 400px) {
+  .error-page-container h1{
+    font-size: 2.0rem;
+  }
+  .error-page-container p{
+    font-size: 1.0rem;
+  }
 }
