@@ -1,25 +1,25 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const ReminderView = ({schedule, setReminder, saveReminder}) => {
+const ReminderView = ({time, setReminder, saveReminder}) => {
   return (
     <>
       <div
         onClick={() => setReminder( "Off" )}
         className={
-          schedule === "Off" ? "reminder-option_active" : "reminder-option"
+          time === "Off" ? "reminder-option_active" : "reminder-option"
         }
       >
         <h2>Turn Off </h2>
         <FontAwesomeIcon
           className="icon"
-          style={schedule === "Off" ? "" : { display: "none" }}
+          style={time === "Off" ? "" : { display: "none" }}
           icon="check"
         />
       </div>
       <div
         onClick={() => setReminder("*/30 * * * * *" )}
         className={
-          schedule === "*/30 * * * * *"
+          time === "*/30 * * * * *"
             ? "reminder-option_active"
             : "reminder-option"
         }
@@ -27,7 +27,7 @@ const ReminderView = ({schedule, setReminder, saveReminder}) => {
         <h2>Every 30 seconds(For testing only)</h2>
         <FontAwesomeIcon
           className="icon"
-          style={schedule === "*/30 * * * * *" ? "" : { display: "none" }}
+          style={time === "*/30 * * * * *" ? "" : { display: "none" }}
           icon="check"
         />
       </div>
@@ -36,7 +36,7 @@ const ReminderView = ({schedule, setReminder, saveReminder}) => {
           setReminder("* */30 * * * *" )
         }
         className={
-          schedule === "* */30 * * * *"
+          time === "* */30 * * * *"
             ? "reminder-option_active"
             : "reminder-option"
         }
@@ -44,7 +44,7 @@ const ReminderView = ({schedule, setReminder, saveReminder}) => {
         <h2>Every 30 Minutes</h2>
         <FontAwesomeIcon
           className="icon"
-          style={schedule === "* */30 * * * *" ? "" : { display: "none" }}
+          style={time === "* */30 * * * *" ? "" : { display: "none" }}
           icon="check"
         />
       </div>
@@ -53,7 +53,7 @@ const ReminderView = ({schedule, setReminder, saveReminder}) => {
           setReminder("* * */12 * * *" )
         }
         className={
-          schedule === "* * */12 * * *"
+          time === "* * */12 * * *"
             ? "reminder-option_active"
             : "reminder-option"
         }
@@ -61,7 +61,7 @@ const ReminderView = ({schedule, setReminder, saveReminder}) => {
         <h2>Every 12 hours</h2>
         <FontAwesomeIcon
           className="icon"
-          style={schedule === "* * */12 * * *"? "" : { display: "none" }}
+          style={time === "* * */12 * * *"? "" : { display: "none" }}
           icon="check"
         />
       </div>
@@ -70,13 +70,13 @@ const ReminderView = ({schedule, setReminder, saveReminder}) => {
           setReminder("* * */24 * * *")
         }
         className={
-          schedule === "* * */24 * * *"? "reminder-option_active" : "reminder-option"
+          time === "* * */24 * * *"? "reminder-option_active" : "reminder-option"
         }
       >
         <h2>Once in a day</h2>
         <FontAwesomeIcon
           className="icon"
-          style={schedule === "* * */24 * * *" ? "" : { display: "none" }}
+          style={time === "* * */24 * * *" ? "" : { display: "none" }}
           icon="check"
         />
       </div>
@@ -85,13 +85,13 @@ const ReminderView = ({schedule, setReminder, saveReminder}) => {
           setReminder("* * * * * */6" )
         }
         className={
-          schedule === "* * * * * */6"? "reminder-option_active" : "reminder-option"
+          time === "* * * * * */6"? "reminder-option_active" : "reminder-option"
         }
       >
         <h2>Once in a week</h2>
         <FontAwesomeIcon
           className="icon"
-          style={schedule === "* * * * * */6" ? "" : { display: "none" }}
+          style={time === "* * * * * */6" ? "" : { display: "none" }}
           icon="check"
         />
       </div>

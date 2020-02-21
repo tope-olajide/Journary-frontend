@@ -16,15 +16,15 @@ const setHeaderToken = {
 
 
 const Reminder = () => {
-    const [schedule, setSchedule] = useState("" );
-    const setReminder = schedule => {
-      setSchedule(schedule);
-      console.log(schedule);
+    const [time, setTime] = useState("");
+    const setReminder = time => {
+      setTime(time);
+      console.log(time);
     };
     const saveReminder= async ()=> {
         try {
             const url = `https://journary.herokuapp.com/api/user/set-reminder`;
-            await axios.post(`${url}`, {schedule}, setHeaderToken);
+            await axios.post(`${url}`, {time}, setHeaderToken);
             toast.success(`Reminder set successfully`);
                     setTimeout(() => {
                     }, 3000);
@@ -39,7 +39,7 @@ const Reminder = () => {
     const fetcher = async (...args) => {
         const response = await axios.get(`${args}`, setHeaderToken);
         console.log(response.data.reminder)
-        setSchedule(response.data.reminder)
+        setTime(response.data.reminder)
         return response.data;
       };
       const url = `https://journary.herokuapp.com/api/user/get-reminder`;
@@ -58,7 +58,7 @@ const Reminder = () => {
     );
  return (
      <>
-     <ReminderView setReminder={setReminder} schedule={schedule} saveReminder={saveReminder} />
+     <ReminderView setReminder={setReminder} time={time} saveReminder={saveReminder} />
      <ToastContainer />
      </>
  )
