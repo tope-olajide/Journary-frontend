@@ -1,5 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <>
@@ -7,7 +8,7 @@ const Footer = () => {
               className=""
               icon="heart"
               size="1x"
-            /> by Temitope</p></footer>
+            /> by <a href="https://twitter.com/kingdayvidz">Temitope.js</a></p></footer>
         </>
     )
 }
