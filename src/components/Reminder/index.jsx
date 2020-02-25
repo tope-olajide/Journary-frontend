@@ -13,8 +13,6 @@ const setHeaderToken = {
     authorization: token
   }
 };
-
-
 const Reminder = () => {
     const [time, setTime] = useState("");
     const [isRunning, setIsRunning] = useState("")
@@ -23,6 +21,13 @@ const Reminder = () => {
       console.log(time);
     };
     const saveReminder= async ()=> {
+      if(time === "Off") {
+        setIsRunning (false)
+      } else {
+        setIsRunning (true)
+      }
+      console.log(isRunning)
+      console.log({time,isRunning})
         try {
             const url = `https://journary.herokuapp.com/api/user/set-reminder`;
             await axios.post(`${url}`, {time,isRunning}, setHeaderToken);
@@ -39,16 +44,16 @@ const Reminder = () => {
     }
     const fetcher = async (...args) => {
         const response = await axios.get(`${args}`, setHeaderToken);
-        console.log(response.data.reminder)
-        setTime(response.data.reminder)
-        if(response.data.reminder === "Off") {
-          setIsRunning (false)
+        console.log (response.data.reminder)
+        setTime (response.data.reminder)
+        if (response.data.reminder === "Off") {
+          setIsRunning (false);
         } else {
-          setIsRunning (true)
+          setIsRunning (true);
         }
         return response.data;
       };
-      const url = `https://journary.herokuapp.com/api/user/get-reminder`;
+    const url = `https://journary.herokuapp.com/api/user/get-reminder`;
     const { data, error } = useSWR(url, fetcher);
     if (error)
     return (
