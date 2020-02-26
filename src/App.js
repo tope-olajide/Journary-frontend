@@ -13,6 +13,8 @@ import EntryDetails from "./components/EntryDetails";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import Reminder from "./components/Reminder";
 import withAuthorization from "./utils/withAuthorization";
+import UnSubscribe from "./components/commons/UnSubscribe";
+import PageNotFound from "./components/commons/PageNotFound"
 /* import LoadingAnimation from "./components/commons/LoadingPage" */
 import {
   faCamera,
@@ -47,7 +49,9 @@ function App() {
         <Route exact path="/intro" component={IntroPage} />
         <Route exact path="/sign-in" component={SignIn} />
         <Route exact path="/create-account" component={SignUp} />
+        <Route exact path="/unsubscribe/:email" component={UnSubscribe} />
         {/* <Route exact path="/loading" component={LoadingAnimation} /> */}
+        <Route path="/*" component={PageNotFound} />
       </Switch>
     </>
   );
