@@ -11,7 +11,7 @@ const setHeaderToken = {
   }
 };
 const PrivateEntries = () => {
-  const url = "https://journary.herokuapp.com/api/entry/private";
+  const url = "http://localhost:8080/api/entry/private";
   const [pageNumber, setPageNumber] = useState(1);
   const fetcher = async (...args) => {
     const response = await axios.get(

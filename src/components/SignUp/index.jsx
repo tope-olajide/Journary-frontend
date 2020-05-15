@@ -9,7 +9,7 @@ import SignUpView from "./SignUpView";
 import { ToastContainer, toast } from "react-toastify";
 
 const SignUpUser = () => {
-  const url = "https://journary.herokuapp.com/api/user/";
+  const url = "http://localhost:8080/api/user/";
   const [isLoading, setIsLoading] = useState(false);
   const { inputs, handleChange } = useForm();
   const { dispatch } = React.useContext(Store);

@@ -36,7 +36,7 @@ const useSelectImageFile =  () => {
       );
       const imageUpload = async (files) => {
         
-        const url = "https://journary.herokuapp.com/api/user";
+        const url = "http://localhost:8080/api/user";
         if(!files.length) {
           return setToastMessage ({
                 status: 'error',

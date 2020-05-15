@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const ReminderView = ({time, setReminder, saveReminder}) => {
+const ReminderView = ({time, setReminder, saveReminder, isLoading}) => {
   return (
     <>
       <div
@@ -95,7 +95,7 @@ const ReminderView = ({time, setReminder, saveReminder}) => {
           icon="check"
         />
       </div>
-     <div className="center mt-1"><button className="medium" onClick={saveReminder}>Save Reminder</button></div> 
+     <div className="center mt-1"><button className="medium" onClick={saveReminder}>{isLoading?'Saving...':'Save Reminder'}</button></div> 
     </>
   );
 };

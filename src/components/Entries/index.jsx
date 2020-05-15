@@ -18,61 +18,57 @@ const setHeaderToken = {
 };
 
 const AllPublicEntries = () => {
-  const url = "https://journary.herokuapp.com/api/entry";
-  const { state, dispatch } = useContext(Store);
+  const url = "http://localhost:8080/api/entry";
   const [pageNumber, setPageNumber] = useState(1);
+  const [allPublicEntriesData, setAllPublicEntriesData] = useState([]);
+  const [totalPublicEntriesData, setTotalPublicEntriesData] = useState(0);
   const fetchNextDate = async () => {
     const nextPage = pageNumber + 1;
     const response = await axios.get(`${url}?page=${nextPage}`, setHeaderToken);
-    const { entries, currentPage } = response.data;
-    setPageNumber(currentPage);
-    console.log({ entries, currentPage });
-    dispatch({
-      type: "FETCH_ALL_PUBLIC_ENTRIES",
-      entries,
-      currentPage
-    });
-    console.log(state.entries);
+    const { entries, currentPage, totalEntries } = response.data;
+    setTotalPublicEntriesData(totalEntries[0].count)
+    console.log(entries)
+    const updatedEntries = allPublicEntriesData.concat(entries)
+          setAllPublicEntriesData(updatedEntries)
+ console.log(currentPage)
+ console.log(allPublicEntriesData)
   };
   const fetcher = async (...args) => {
     const response = await axios.get(
       `${args}?page=${pageNumber}`,
       setHeaderToken
     );
-    const { entries, currentPage } = response.data;
+    const { entries, currentPage, totalEntries } = response.data;
+    console.log(totalEntries[0].count)
+    setTotalPublicEntriesData(totalEntries[0].count)
+    setAllPublicEntriesData(entries)
     setPageNumber(currentPage);
-    console.log({ entries, currentPage });
-    dispatch({
-      type: "FETCH_ALL_PUBLIC_ENTRIES",
-      entries,
-      currentPage
-    });
+    
+    console.log(entries);
     return response.data;
   };
+  
   const { data, error } = useSWR(url, fetcher);
-  if (error)
-    return (
-      <>
-        <ErrorPage />
-      </>
-    );
-  if (!data)
-    return (
-      <>
-        <LoadingPage />
-      </>
-    );
+  if (error) return <div><ErrorPage /></div>;
+  if (!data) return <div><LoadingPage /></div>;
+  
   return (
     <>
       <MainNavigationBar />
       <HeroImage heroImage={diaryImage} heroCaption={"All Public Entries"} />
       <InfiniteScroll
-        dataLength={state.entries.length} //This is important field to render the next data
+        dataLength={totalPublicEntriesData} //This is important field to render the next data
         next={fetchNextDate}
-        hasMore={true}
+        hasMore={(allPublicEntriesData.length == totalPublicEntriesData)?false:true}
+        loader={<h4>Loading...</h4>}
+        endMessage={
+          <p style={{textAlign: 'center'}}>
+            <b>Yay! You have seen it all</b>
+          </p>}
+
       >
         <main class="entries-container">
-          {state.entries.map(entry => {
+          {allPublicEntriesData.map(entry => {
             return <EntriesView key={entry.id} {...entry} />;
           })}
         </main>

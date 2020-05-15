@@ -27,7 +27,7 @@ const CreateNew = () => {
     return setIsFeatureImage(!isFeatureImage);
   };
   const saveEntry = async () => {
-    const url = "https://journary.herokuapp.com/api/entry";
+    const url = "http://localhost:8080/api/entry";
     const content = htmlContents;
     const title = inputs.title;
     const featureImageUrl = featureImage || state.temporaryFeatureImage;

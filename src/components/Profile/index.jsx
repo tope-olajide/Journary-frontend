@@ -20,7 +20,7 @@ const setHeaderToken = {
     authorization: token
   }
 };
-  const url = "https://journary.herokuapp.com/api/user";
+  const url = "http://localhost:8080/api/user";
   const fetcher = async (...args) => {
     const response = await axios.get(
       `${args}`,
@@ -45,13 +45,14 @@ const setHeaderToken = {
 
     return( <>
     <MainNavigationBar />
+    {console.log(data.userData[0])}
     <HeroImage heroImage={BookDiaryPen} heroCaption={"My Profile"} />
     <main class="profile-container">
     <section class="info-section">
         <Image className="profile-image" src={data.userData[0].user_image_url} />
         <section class="user-info">
-        <h3>Temitope David</h3>
-        <p>Fullstack Developer</p></section>
+        <h3>{data.userData[0].fullname}</h3>
+        <p>{data.userData[0].about}</p></section>
         <table>
             <tr>
               <th scope="col"><h4>{data.privateEntriesCount}</h4><p>Public</p></th>

@@ -19,7 +19,7 @@ const EntryDetails = ({ match }) => {
   const [redirectToModifyEntry, setRedirectToModifyEntry] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { entryId } = match.params;
-  const url = `https://journary.herokuapp.com/api/entry/${entryId}`;
+  const url = `http://localhost:8080/api/entry/${entryId}`;
   const fetcher = async (...args) => {
     const response = await axios.get(`${args}`, setHeaderToken);
     return response.data;
@@ -36,7 +36,6 @@ const EntryDetails = ({ match }) => {
             setTimeout(() => {
               setRedirectToHomepage(true);
             }, 3000);
-            
         }
         catch (error) {
             setIsLoading(false);
@@ -45,7 +44,6 @@ const EntryDetails = ({ match }) => {
             return toast.error(errorMessage, {
               position: "bottom-left"
             });
-            
           }
   }
   const modifyEntry = () => {
@@ -73,10 +71,10 @@ if (!data)
   return (
     <>
       <EntryDetailsView
-        title={data.entry[0].title}
-        content={data.entry[0].content}
-        viewCount={data.entry[0].view_count}
-        date = {data.entry[0].created_at}
+        title={data.entry.title}
+        content={data.entry.content}
+        viewCount={data.entry.view_count}
+        date = {data.entry.created_at}
         toggleDeleteModal = {toggleDeleteModal}
         isDeleteModal = {isDeleteModal}
         isOwner = {data.isOwner}

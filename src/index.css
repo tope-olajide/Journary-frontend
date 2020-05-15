@@ -117,6 +117,7 @@ body {
 }
 a {
   text-decoration: none;
+  color:rgb(175, 166, 166)
 }
 .logo {
   color: white;
@@ -983,7 +984,7 @@ button.primary:active,
   overflow: auto;
 }
 .toolbar {
-  background: rgb(5, 0, 0);
+  background: rgb(250, 248, 248);
   border-radius: 0;
   padding: 5px;
   border: 3px solid rgb(255, 255, 255);
@@ -1000,7 +1001,7 @@ button.primary:active,
   position: fixed;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
   background-color: var(--darken-4);
-  z-index: 100;
+  z-index: 200;
   overflow: auto;
   display: block;
   padding-top: 10px;
@@ -1117,41 +1118,37 @@ button.primary:active,
   text-align: center;
   padding-top: 5px;
 }
-.image-gallery {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 15px;
-  margin: 0;
+.image-gallery  {
+  display: flex;
+  justify-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.image-gallery main {
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+  margin-top: 15px;
 }
 .image-gallery main img {
-  height: 220px;
-  width: 100%;
+  height: 250px;
+  width: 350px;
   object-fit: cover;
 }
 @media screen and (max-width: 800px) {
-  .image-gallery {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
-    margin: 20px;
-    height: 90%;
-    margin-bottom: 20px;
-  }
   .image-gallery main img {
     height: 200px;
   }
 }
 @media screen and (max-width: 600px) {
-  .image-gallery {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 5px;
-    margin: 10px;
-    height: 80%;
-    margin-bottom: 20px;
+  .image-gallery main {
+    width: 320px;
+
   }
   .image-gallery main img {
-    height: 180px;
+    width: 320px;
   }
 }
 /* Create entry */

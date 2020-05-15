@@ -42,14 +42,14 @@ const addImage = imageUrl => {
 
   }; */
   const updateEntry = async () => {
-      const title = inputs.title || data.entry[0].title;
+      const title = inputs.title || data.entry.title;
       const isPrivate = isEntryPrivate;
-      const content = htmlContents || data.entry[0].content;
+      const content = htmlContents || data.entry.content;
       const featureImageUrl = featureImage
       const {entryId} = match.params
       console.log({title,isPrivate,content,featureImageUrl });
       
-     const url = `https://journary.herokuapp.com/api/entry/${entryId}`;
+     const url = `http://localhost:8080/api/entry/${entryId}`;
     try {
         setIsLoading (true);
         toast.info(`Updating entry...`,{
@@ -73,17 +73,17 @@ const addImage = imageUrl => {
   const handleSelectChange=(event)=> {
     setIsEntryPrivate(event.target.value);
   }
-const url = `https://journary.herokuapp.com/api/entry/get-entry/${entryId}`;
+const url = `http://localhost:8080/api/entry/get-entry/${entryId}`;
 const fetcher = async (...args) => {
 const response = await axios.get(`${args}`,setHeaderToken);
 const defaultContent = response.data.entry;
     console.log(defaultContent )
-const contentBlock = htmlToDraft(defaultContent[0].content);
+const contentBlock = htmlToDraft(defaultContent.content);
 const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
 const updatedEditorState = EditorState.createWithContent(contentState);
 setEditorState(updatedEditorState);
-setIsEntryPrivate(defaultContent[0].is_private);
-setFeatureImage(defaultContent[0].entry_image_url);
+setIsEntryPrivate(defaultContent.is_private);
+setFeatureImage(defaultContent.entry_image_url);
     return response.data
 };
 const  { data, error }  = useSWR(url, fetcher);
@@ -99,7 +99,7 @@ return (
     <LoadingPage />
   </>
 );
-console.log(data.entry[0].content)
+console.log(data)
 
   return (
     <>
@@ -117,7 +117,7 @@ console.log(data.entry[0].content)
           name="title"
           className="entry-title_text-box"
           onChange={handleChange}
-          defaultValue = {data.entry[0].title}
+          defaultValue = {data.entry.title}
         />
 <select value={isEntryPrivate} onChange={handleSelectChange}>
   <option value="true" >Private</option>

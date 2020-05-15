@@ -11,7 +11,7 @@ const CustomToolbars = props => {
   const { toggleGalleryModal, isGalleryModal } = useToggleImageGallery()
   const addImage = imageUrl => {
 /* this will use the first picture that the user select as the Featured Image,
-the user can later change it when he/she click on the "Set as feature" button */
+the user can later change it when he/she clicks on the "Set as feature" button */
 dispatch({
   type: "SET_TEMPORARY_FEATURE_IMAGE",
   payLoad: imageUrl

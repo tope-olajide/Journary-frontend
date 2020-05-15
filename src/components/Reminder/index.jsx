@@ -15,7 +15,8 @@ const setHeaderToken = {
 };
 const Reminder = () => {
     const [time, setTime] = useState("");
-    const [isRunning, setIsRunning] = useState("")
+    const [isRunning, setIsRunning] = useState("");
+    const [isLoading, setIsloading] = useState(false);
     const setReminder = time => {
       setTime(time);
       console.log(time);
@@ -29,17 +30,21 @@ const Reminder = () => {
       console.log(isRunning)
       console.log({time,isRunning})
         try {
-            const url = `https://journary.herokuapp.com/api/user/set-reminder`;
+            const url = `http://localhost:8080/api/user/set-reminder`;
+            setIsloading(true)
             await axios.post(`${url}`, {time,isRunning}, setHeaderToken);
+            setIsloading(false)
             toast.success(`Reminder set successfully`);
                     setTimeout(() => {
                     }, 3000);
                 }
                 catch (error) {
                     const errorMessage = handleNetworkError(error);
+                    setIsloading(false)
                     return toast.error(errorMessage, {
                       position: "bottom-left"
                     });
+                    
                   }
     }
     const fetcher = async (...args) => {
@@ -53,7 +58,7 @@ const Reminder = () => {
         }
         return response.data;
       };
-    const url = `https://journary.herokuapp.com/api/user/get-reminder`;
+    const url = `http://localhost:8080/api/user/get-reminder`;
     const { data, error } = useSWR(url, fetcher);
     if (error)
     return (
@@ -69,7 +74,7 @@ const Reminder = () => {
     );
  return (
      <>
-     <ReminderView setReminder={setReminder} time={time} saveReminder={saveReminder} />
+     <ReminderView setReminder={setReminder} time={time} saveReminder={saveReminder} isLoading={isLoading}/>
      <ToastContainer />
      </>
  )
