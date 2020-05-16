@@ -4,7 +4,7 @@ import axios from 'axios';
 import useSWR from "swr";
 import LoadingPage from "../commons/LoadingPage";
 import ErrorPage from "../commons/ErrorPage/ErrorPageView";
-
+import baseUrl from '../../utils/baseUrl'
 const token = localStorage.getItem('token');
 const setHeaderToken = {
   headers: {
@@ -12,7 +12,7 @@ const setHeaderToken = {
   }
 }
 const ImageGallery = ({ addImage, toggleGalleryModal, isGalleryPage }) => {
-  const url = 'http://localhost:8080/api/user/gallery';
+  const url = `${baseUrl}/api/user/gallery`;
   const deleteImage = async (imageId) => {
     const response = await axios.delete(`${url}/${imageId}`, setHeaderToken);
     revalidate()

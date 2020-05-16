@@ -7,9 +7,10 @@ import handleNetworkError from "../../utils/networkErrorHandler";
 import { Store } from "../../Store";
 import SignUpView from "./SignUpView";
 import { ToastContainer, toast } from "react-toastify";
+import baseUrl from "../../utils/baseUrl";
 
 const SignUpUser = () => {
-  const url = "http://localhost:8080/api/user/";
+  const url = `${baseUrl}/api/user/`;
   const [isLoading, setIsLoading] = useState(false);
   const { inputs, handleChange } = useForm();
   const { dispatch } = React.useContext(Store);
@@ -32,11 +33,11 @@ const SignUpUser = () => {
       axios.defaults.headers.common.authorization = token;
       toast.success(`Welcome ${inputs.username}`);
       setTimeout(() => {
-        window.location = "/intro"
+        window.location = "/"
       }, 1000);
       setIsLoading(false);
       const userData = jsonwebtoken.decode(localStorage.getItem("token"));
-      return dispatch({
+      return dispatch({ 
         type: "SET_CURRENT_USER",
         userData
       });

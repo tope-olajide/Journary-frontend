@@ -4,6 +4,7 @@ import axios from "axios";
 import EntriesView from "../Entries/EntriesView";
 import LoadingPage from "../commons/LoadingPage/LoadingView";
 import ErrorPage from "../commons/ErrorPage/ErrorPageView";
+import baseUrl from "../../utils/baseUrl";
 
 const token = localStorage.getItem("token");
 const setHeaderToken = {
@@ -12,7 +13,7 @@ const setHeaderToken = {
   }
 };
 const PublicEntries = () => {
-  const url = "http://localhost:8080/api/entry/public";
+  const url = `${baseUrl}/api/entry/public`;
   const [pageNumber, setPageNumber] = useState(1);
   const fetcher = async (...args) => {
     const response = await axios.get(

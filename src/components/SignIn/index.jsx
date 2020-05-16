@@ -5,9 +5,10 @@ import handleNetworkError from "../../utils/networkErrorHandler";
 import { Store } from "../../Store";
 import { ToastContainer, toast } from "react-toastify";
 import useForm from "../CustomHooks/useForm";
+import baseUrl from "../../utils/baseUrl";
 import SignInView from './SignInView'
 const SignIn = () => {
-    const url = "http://localhost:8080/api/user/";
+    const url = `${baseUrl}/api/user/`;
     const [isLoading, setIsLoading] = useState(false);
     const { inputs, handleChange } = useForm();
     const { dispatch } = React.useContext(Store);

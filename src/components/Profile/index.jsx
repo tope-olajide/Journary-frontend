@@ -13,6 +13,8 @@ import BookDiaryPen from '../../images/Book-Diary-Pen.jpg'
 import HeroImage from '../commons/HeroImage'
 import LoadingPage from "../commons/LoadingPage";
 import ErrorPage from "../commons/ErrorPage";
+import baseUrl from "../../utils/baseUrl";
+
 const MyProfile = () => {
 const token = localStorage.getItem("token");
 const setHeaderToken = {
@@ -20,7 +22,7 @@ const setHeaderToken = {
     authorization: token
   }
 };
-  const url = "http://localhost:8080/api/user";
+  const url = `${baseUrl}/api/user`;
   const fetcher = async (...args) => {
     const response = await axios.get(
       `${args}`,

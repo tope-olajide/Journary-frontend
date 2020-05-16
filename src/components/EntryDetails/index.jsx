@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import handleNetworkError from "../../utils/networkErrorHandler";
 import LoadingPage from "../commons/LoadingPage";
+import baseUrl from '../../utils/baseUrl'
 import ErrorPage from "../commons/ErrorPage";
 const token = localStorage.getItem("token");
 const setHeaderToken = {
@@ -19,7 +20,7 @@ const EntryDetails = ({ match }) => {
   const [redirectToModifyEntry, setRedirectToModifyEntry] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { entryId } = match.params;
-  const url = `http://localhost:8080/api/entry/${entryId}`;
+  const url = `${baseUrl}/api/entry/${entryId}`;
   const fetcher = async (...args) => {
     const response = await axios.get(`${args}`, setHeaderToken);
     return response.data;

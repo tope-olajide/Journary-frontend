@@ -5,6 +5,7 @@ import useSWR from "swr";
 import { ToastContainer, toast } from "react-toastify";
 import handleNetworkError from "../../utils/networkErrorHandler";
 import LoadingPage from "../commons/LoadingPage";
+import baseUrl from "../../utils/baseUrl";
 import ErrorPage from "../commons/ErrorPage";
 const token = localStorage.getItem("token");
 
@@ -30,7 +31,7 @@ const Reminder = () => {
       console.log(isRunning)
       console.log({time,isRunning})
         try {
-            const url = `http://localhost:8080/api/user/set-reminder`;
+            const url = `${baseUrl}/api/user/set-reminder`;
             setIsloading(true)
             await axios.post(`${url}`, {time,isRunning}, setHeaderToken);
             setIsloading(false)
@@ -58,7 +59,7 @@ const Reminder = () => {
         }
         return response.data;
       };
-    const url = `http://localhost:8080/api/user/get-reminder`;
+    const url = `${baseUrl}/api/user/get-reminder`;
     const { data, error } = useSWR(url, fetcher);
     if (error)
     return (

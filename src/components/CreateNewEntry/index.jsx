@@ -10,6 +10,7 @@ import handleNetworkError from "../../utils/networkErrorHandler";
 import { ToastContainer, toast } from "react-toastify";
 import Footer from "../commons/Footer";
 import axios from "axios";
+import baseUrl from '../../utils/baseUrl'
 const CreateNew = () => {
   const { state } = useContext(Store);
   const [featureImage, setFeatureImage] = useState("");
@@ -27,7 +28,7 @@ const CreateNew = () => {
     return setIsFeatureImage(!isFeatureImage);
   };
   const saveEntry = async () => {
-    const url = "http://localhost:8080/api/entry";
+    const url = `${baseUrl}/api/entry`;
     const content = htmlContents;
     const title = inputs.title;
     const featureImageUrl = featureImage || state.temporaryFeatureImage;

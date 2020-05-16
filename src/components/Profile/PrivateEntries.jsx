@@ -3,6 +3,7 @@ import useSWR from "swr";
 import axios from "axios";
 import EntriesView from "../Entries/EntriesView";
 import LoadingPage from "../commons/LoadingPage/LoadingView";
+import baseUrl from "../../utils/baseUrl";
 import ErrorPage from "../commons/ErrorPage/ErrorPageView";
 const token = localStorage.getItem("token");
 const setHeaderToken = {
@@ -11,7 +12,7 @@ const setHeaderToken = {
   }
 };
 const PrivateEntries = () => {
-  const url = "http://localhost:8080/api/entry/private";
+  const url = `${baseUrl}/api/entry/private`;
   const [pageNumber, setPageNumber] = useState(1);
   const fetcher = async (...args) => {
     const response = await axios.get(

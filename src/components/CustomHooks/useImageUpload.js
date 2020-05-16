@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import axios from 'axios'
 import { Store } from "../../Store";
+import baseUrl from '../../utils/baseUrl'
+
 require('dotenv').config();
 
 const token = localStorage.getItem("token");
@@ -36,7 +38,7 @@ const useSelectImageFile =  () => {
       );
       const imageUpload = async (files) => {
         
-        const url = "http://localhost:8080/api/user";
+        const url = `${baseUrl}/api/user`;
         if(!files.length) {
           return setToastMessage ({
                 status: 'error',
