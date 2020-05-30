@@ -57,8 +57,8 @@ const setHeaderToken = {
         <p>{data.userData[0].about}</p></section>
         <table>
             <tr>
-              <th scope="col"><h4>{data.privateEntriesCount}</h4><p>Public</p></th>
-              <th scope="col"><h4>{data.publicEntriesCount}</h4><p>Private</p></th>
+              <th scope="col"><h4>{data.publicEntriesCount}</h4><p>Public</p></th>
+              <th scope="col"><h4>{data.privateEntriesCount}</h4><p>Private</p></th>
               <th scope="col"><h4>{data.totalEntriesCount}</h4><p>Total</p></th>
             </tr>
         </table>

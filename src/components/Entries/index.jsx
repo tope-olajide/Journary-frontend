@@ -81,13 +81,11 @@ const AllPublicEntries = () => {
         }
       >
         <main class="entries-container">
-          {allPublicEntriesData.length ? (
+          {
             allPublicEntriesData.map((entry) => {
               return <EntriesView key={entry.id} {...entry} />;
             })
-          ) : (
-            <div>no entry</div>
-          )}
+           }
         </main>
       </InfiniteScroll>
       <Footer />

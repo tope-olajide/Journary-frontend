@@ -1,71 +1,90 @@
-# simple-blog-with-react-hooks
-Simple blog using react hooks with context api
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+1. Get the backend running first, to do that, clone this repo:
 
-In the project directory, you can run:
+   ```
+   git clone https://github.com/tope-olajide/Journary-backend.git
+   cd Journary-backend
+   ```
 
-### `npm start`
+   Then follow the instructions [here](https://github.com/tope-olajide/Journary-backend#readme) to get the backend server up and running. After that:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Install [`node`](https://nodejs.org/en/download/), version 12 or greater
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+3) Clone this repo and cd into it
 
-### `npm test`
+   ```
+   git clone https://github.com/tope-olajide/journary-frontend.git
+   cd journary-frontend
+   ```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4) Install all dependencies
 
-### `npm run build`
+   ```
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5) navigate to `src/utils/baseUrl.js` and change the baseUrl from 'https://journary.cleverapps.io' to 'http://localhost:8080'`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+6) Start the app by running:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```
+   npm start
+   ```
 
-### `npm run eject`
+7) Once the server is running, Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Create an account with fulname, username, email and password.
+2. Sign in with username or email and password
+3. Create a new dairy entry
+4. Modify an entry
+4. Encrypts diary before saving
+5. Set and automatically send Email Reminder
+6. Select from 5 different theme colors
+7. Set dairy to private or public
+8. Delete an entry
+9. Get all public entries
+10. Get all private entries
+11. Add Pictures to entries
+12. Easy to use WYSIWYG editor
+13. Update user's profile
+14. Picture Gallery
+## Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [NodeJS](https://nodejs.org/en/) - A Javascript runtime built on chrome V8 engine that uses an event-driven non-blocking I/O model that makes it lightweight and efficient.
+- [React](https://www.reactjs.org/) - A JavaScript library for building user interfaces by Facebook.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
+If you are interested in contributing to development of this project, follow the instructions below to contribute.
 
-### Code Splitting
+* Fork the repository
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* Make your change
 
-### Analyzing the Bundle Size
+* Commit your change to your forked repository
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* Provide a detailed commit description
 
-### Making a Progressive Web App
+* Raise a pull request against the master branch
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### Can I clone this application for personal use?
 
-### Advanced Configuration
+    Yes!. This application is licensed under MIT, and it's open for
+    everybody
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Author
 
-### Deployment
+- **Temitope David Olajide** - Fullstack Developer.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Acknowledgments
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- ReactJS
+- Cloudinary
