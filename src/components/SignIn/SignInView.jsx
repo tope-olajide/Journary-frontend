@@ -3,7 +3,6 @@ import AuthNav from "../commons/AuthNav";
 import Footer from "../commons/Footer";
 
 const SignInView = ({handleChange, handleFormSubmit, isLoading}) => {
-
   return (
     <>
       <AuthNav />

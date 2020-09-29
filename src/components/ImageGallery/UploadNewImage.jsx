@@ -30,6 +30,40 @@ const UploadNewImage = () => {
       </div>
     </div>
   ));
+  const uploadImage = () => {
+    let uploadedImages = [];
+  const uploaders = files.map(async file => {
+    // Initial FormData
+    const formData = new FormData();
+    formData.append("upload_preset", "sijxpjkn");
+    formData.append("api_key", "139423638121511");
+    formData.append("file", file);
+    formData.append("timestamp", (Date.now() / 1000) | 0);
+    try {
+    let response = await fetch({
+      method: "post",
+      url: "https://api.cloudinary.com/v1_1/temitope/image/upload",
+      data: formData,
+      headers: { "X-Requested-With": "XMLHttpRequest" },
+    });
+    const { data } = response;
+    const { secure_url, public_id } = data;
+    uploadedImages.push({ imageUrl: secure_url, imageId: public_id });
+    console.log(uploadedImages);
+
+  }
+  catch (err) {
+    console.log(err)
+
+  }
+
+  }) 
+// Once all the files are uploaded
+return Promise.all(uploaders)
+.then(async data => {
+  console.log(data)
+})
+  }
   return (
     <>
       

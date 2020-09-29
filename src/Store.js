@@ -8,20 +8,20 @@ export function StoreProvider(props) {
     displayUploadModal: false,
     temporaryFeatureImage: "",
     imageGallery: [],
-    maximizeEditor: false
+    maximizeEditor: false,
   };
   function reducer(state, action) {
     switch (action.type) {
       case "SET_CURRENT_USER":
         return {
           ...state,
-          user: action.userData
+          user: action.userData,
         };
       case "FETCH_ALL_PUBLIC_ENTRIES":
         return {
           ...state,
           entries: state.entries.concat(action.entries),
-          currentPage: action.currentPage
+          currentPage: action.currentPage,
         };
       case "SET_TEMPORARY_FEATURE_IMAGE":
         return { ...state, temporaryFeatureImage: action.payLoad };
@@ -29,17 +29,17 @@ export function StoreProvider(props) {
         return {
           ...state,
           entries: state.entries.concat([action.entries]),
-          currentPage: action.currentPage
+          currentPage: action.currentPage,
         };
       case "SET_IMAGE_GALLERY":
         return {
           ...state,
-          imageGallery: state.imageGallery.concat(action.gallery)
+          imageGallery: state.imageGallery.concat(action.gallery),
         };
       case "TOGGLE_EDITOR_SIZE":
         return { ...state, maximizeEditor: action.payload };
       default:
-        return state; 
+        return state;
     }
   }
   const [state, dispatch] = React.useReducer(reducer, initialState);
